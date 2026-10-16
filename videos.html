@@ -89,8 +89,7 @@ title: Media
   .play{position:relative; width:76px; height:76px; border-radius:50%; background:var(--accent);
     display:grid; place-items:center; transition:transform .18s, background-color .18s;
     box-shadow:0 8px 30px rgba(0,0,0,.35)}
-  .poster:hover .play{transform:scale(1.06); background:#35507089}
-  .poster:hover .play{background:#3a577a}
+  .poster:hover .play{transform:scale(1.06); background:#3a577a}
   .play svg{width:30px; height:30px; margin-left:5px; fill:#fff}
   .poster .p-title{position:absolute; left:22px; right:22px; bottom:20px; text-align:left;
     font-family:"Poppins",sans-serif; font-weight:500; color:#f3f2ee; font-size:1.05rem;
@@ -146,6 +145,56 @@ title: Media
   .foot-nav a:hover{color:var(--accent)}
   .foot-copy{font-family:"Poppins",sans-serif; font-size:.85rem; color:var(--ink-2)}
 
+
+  /* real YouTube thumbnails */
+  .poster-img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover}
+  .poster.has-img::after{content:""; position:absolute; inset:0;
+    background:linear-gradient(to top, rgba(0,0,0,.68) 0%, rgba(0,0,0,0) 55%)}
+  .poster .play, .poster .p-title, .poster .note{z-index:2}
+  .pl-thumb img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover}
+  .pl-thumb .pin{filter:drop-shadow(0 1px 4px rgba(0,0,0,.6))}
+  .pl-thumb .pin svg{fill:#fff}
+  .pl-thumb .pl-dur{z-index:2}
+  .jump{display:inline-block; margin-top:1.1rem; font-family:"Poppins",sans-serif; font-size:.9rem; font-weight:500;
+    color:var(--accent); text-decoration:none; border-bottom:1.5px solid var(--line-2); padding-bottom:1px}
+  .jump:hover{border-bottom-color:var(--accent)}
+
+  /* shorts */
+  .shorts{padding-bottom:clamp(3.5rem,7vw,5.5rem)}
+  .shorts[hidden]{display:none}
+  .sec-top{border-top:1px solid var(--line); padding-top:clamp(2.2rem,4vw,3.2rem); margin-bottom:1.6rem}
+  .sec-top h2{font-size:clamp(1.5rem,1rem + 1.6vw,2rem)}
+  .sec-top p{color:var(--ink-2); margin:.5rem 0 0; max-width:56ch}
+  .shorts-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,200px)); gap:1.5rem 1.1rem}
+  .short{display:block; align-self:start; width:100%; background:none; border:0; padding:0; text-align:left; cursor:pointer; font:inherit; color:inherit}
+  .short-thumb{position:relative; display:block; aspect-ratio:9/16; border-radius:10px; overflow:hidden;
+    background:radial-gradient(120% 100% at 50% 0%, #2b2f39 0%, #1b1d23 70%); transition:box-shadow .16s}
+  .short-thumb .mk{position:absolute; inset:0; margin:auto; width:34px; height:34px; color:rgba(227,226,221,.4)}
+  .short-thumb img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover}
+  .short-play{position:absolute; right:10px; bottom:10px; width:38px; height:38px; border-radius:50%;
+    background:rgba(27,29,35,.74); display:grid; place-items:center; z-index:2}
+  .short-play svg{width:16px; height:16px; fill:#fff; margin-left:2px}
+  .short:hover .short-thumb{box-shadow:0 0 0 2px var(--accent)}
+  .short-title{display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;
+    font-family:"Poppins",sans-serif; font-weight:500; font-size:.9rem; line-height:1.35; margin-top:.65rem}
+  .short:hover .short-title{color:var(--accent)}
+
+  .short-dlg{border:0; padding:0; background:transparent; color:#fff; max-width:100vw; max-height:100vh; overflow:visible}
+  .short-dlg::backdrop{background:rgba(15,16,20,.86)}
+  .short-wrap{--sw:min(92vw, calc((100vh - 150px) * 9 / 16)); --sw:min(92vw, calc((100dvh - 150px) * 9 / 16));
+    position:relative; display:flex; flex-direction:column; align-items:center; gap:.9rem; width:var(--sw)}
+  .short-stage{width:100%; aspect-ratio:9/16; background:#000; border-radius:12px; overflow:hidden; display:grid; place-items:center}
+  .short-stage iframe{width:100%; height:100%; border:0}
+  .stage-note{margin:0; padding:1.5rem; text-align:center; font-family:"Poppins",sans-serif; font-size:.92rem; color:#d9d8d2}
+  .dlg-bar{display:flex; align-items:center; gap:.8rem; width:100%}
+  .dlg-cap{flex:1; min-width:0; margin:0; text-align:center; font-family:"Poppins",sans-serif; font-size:.92rem; line-height:1.35; color:#e8e6df}
+  .dlg-nav,.dlg-close{width:42px; height:42px; border-radius:50%; border:1px solid rgba(255,255,255,.3);
+    background:rgba(255,255,255,.08); color:#fff; cursor:pointer; display:grid; place-items:center; flex:none;
+    transition:background-color .15s}
+  .dlg-nav:hover,.dlg-close:hover{background:rgba(255,255,255,.2)}
+  .dlg-close{position:absolute; top:-12px; right:-12px; z-index:3; background:#23252b}
+  .dlg-nav svg,.dlg-close svg{width:18px; height:18px; fill:none; stroke:#fff; stroke-width:2.2; stroke-linecap:round; stroke-linejoin:round}
+
   @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto} *{transition:none !important}}
   @media (max-width:900px){
     .media{grid-template-columns:1fr}
@@ -191,26 +240,13 @@ title: Media
     <h1 id="ptitle">Lectures &amp; talks</h1>
     <p>Recorded lectures, seminars, and conversations bringing serious scholarship to the ethical, legal, and social questions facing our communities.</p>
     <div class="filters" role="group" aria-label="Filter by topic" id="filters"></div>
+    <a class="jump" id="jumpShorts" href="#shorts" hidden>Jump to Shorts</a>
   </section>
 
   <div class="media container">
     <div class="video-main">
       <div class="player">
-        <div id="playerSlot" aria-live="polite">
-          <button class="poster" id="poster" type="button" aria-label="Play video">
-            <svg class="mark" viewBox="0 0 100 100" aria-hidden="true" fill="none" stroke="currentColor"
-                 stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="25" y1="32" x2="75" y2="32"/><line x1="50" y1="32" x2="50" y2="79"/>
-              <path d="M50 79 L40 90 M50 79 L60 90 M36 90 L64 90"/>
-              <path d="M25 32 L16 49 M25 32 L34 49 M16 49 L20 56 L30 56 L34 49"/>
-              <path d="M75 32 L66 49 M75 32 L84 49 M66 49 L70 56 L80 56 L84 49"/>
-              <circle cx="50" cy="28" r="3.4" fill="currentColor" stroke="none"/>
-            </svg>
-            <span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
-            <span class="p-title" id="posterTitle"></span>
-            <span class="note" id="note">Add a YouTube link to this entry to enable playback.</span>
-          </button>
-        </div>
+        <div id="playerSlot" aria-live="polite"></div>
       </div>
       <div class="v-meta">
         <span class="v-topic" id="vTopic"></span>
@@ -226,6 +262,32 @@ title: Media
       <div class="playlist" id="playlist"></div>
     </aside>
   </div>
+
+  <section class="shorts container" id="shorts" aria-labelledby="shortsTitle" hidden>
+    <div class="sec-top">
+      <h2 id="shortsTitle">Shorts</h2>
+      <p>Brief clips and quick takes. Tap one to watch.</p>
+    </div>
+    <div class="shorts-grid" id="shortsGrid"></div>
+  </section>
+
+  <dialog class="short-dlg" id="shortDlg" aria-label="Short video player">
+    <div class="short-wrap">
+      <button type="button" class="dlg-close" id="shortClose" aria-label="Close">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+      <div class="short-stage" id="shortStage"></div>
+      <div class="dlg-bar">
+        <button type="button" class="dlg-nav" id="shortPrev" aria-label="Previous short">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+        </button>
+        <p class="dlg-cap" id="shortCap"></p>
+        <button type="button" class="dlg-nav" id="shortNext" aria-label="Next short">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+  </dialog>
 </main>
 
 <footer class="site-footer">
@@ -253,120 +315,201 @@ title: Media
 </footer>
 
 <script>
-/* Videos come from the "Videos" list in the editor (file: _data/videos.yml). */
-const VIDEOS = {{ site.data.videos | jsonify }};
-
+/* ---------- shared helpers ---------- */
 function ytId(u){
   if(!u) return '';
   var m = String(u).match(/(?:v=|youtu\.be\/|embed\/|shorts\/)([A-Za-z0-9_-]{11})/);
   if(m) return m[1];
   return /^[A-Za-z0-9_-]{11}$/.test(String(u).trim()) ? String(u).trim() : '';
 }
-VIDEOS.forEach(function(v){ v.youtubeId = ytId(v.youtube); });
-
-if(!VIDEOS.length){
-  document.querySelector('.media').innerHTML = '<p style="color:var(--ink-2)">New talks will appear here.</p>';
-  throw new Error('no videos yet');
-}
-
-const PLAY_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>';
-const MARK = document.querySelector('.poster .mark').outerHTML;
-
-const els = {
-  filters: document.getElementById('filters'),
-  playlist: document.getElementById('playlist'),
-  slot: document.getElementById('playerSlot'),
-  posterTitle: document.getElementById('posterTitle'),
-  note: document.getElementById('note'),
-  topic: document.getElementById('vTopic'), title: document.getElementById('vTitle'),
-  by: document.getElementById('vBy'), date: document.getElementById('vDate'),
-  dur: document.getElementById('vDur'), desc: document.getElementById('vDesc'),
-  count: document.getElementById('plCount'),
-};
-
-let current = 0, filter = 'All';
-const topics = ['All', ...Array.from(new Set(VIDEOS.map(v => v.topic)))];
-
-function visibleList(){
-  return VIDEOS.map((v,i)=>({v,i})).filter(o => filter==='All' || o.v.topic===filter);
-}
-
-function renderFilters(){
-  els.filters.innerHTML = '';
-  topics.forEach(t => {
-    const b = document.createElement('button');
-    b.className='filter'; b.textContent=t; b.type='button';
-    b.setAttribute('aria-pressed', String(t===filter));
-    b.addEventListener('click', ()=>{
-      filter=t; const list=visibleList();
-      if(list.length && !list.some(o=>o.i===current)) current=list[0].i;
-      renderFilters(); renderPlaylist(); renderFeatured();
-    });
-    els.filters.appendChild(b);
+function esc(s){
+  return String(s == null ? '' : s).replace(/[&<>"]/g, function(c){
+    return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];
   });
 }
-
-function thumb(v){
-  return '<span class="pl-thumb">'+
-    '<svg class="mk" viewBox="0 0 100 100" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><line x1="25" y1="32" x2="75" y2="32"/><line x1="50" y1="32" x2="50" y2="79"/><path d="M50 79 L40 90 M50 79 L60 90 M36 90 L64 90"/><path d="M25 32 L16 49 M25 32 L34 49 M16 49 L20 56 L30 56 L34 49"/><path d="M75 32 L66 49 M75 32 L84 49 M66 49 L70 56 L80 56 L84 49"/><circle cx="50" cy="28" r="3.4" fill="currentColor" stroke="none"/></svg>'+
-    '<span class="pin">'+PLAY_ICON+'</span>'+
-    '<span class="pl-dur">'+v.duration+'</span></span>';
+// Loads a YouTube thumbnail, trying sizes in order. If none exist the branded placeholder stays.
+function loadThumb(img, id, sizes){
+  var i = 0;
+  function next(){
+    if(i >= sizes.length){ img.remove(); return; }
+    img.src = 'https://i.ytimg.com/vi/' + id + '/' + sizes[i++] + '.jpg';
+  }
+  img.addEventListener('error', next);
+  img.addEventListener('load', function(){ if(img.naturalWidth <= 120 && i < sizes.length) next(); });
+  next();
 }
+var PLAY_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>';
+var MARK = '<svg class="mark mk" viewBox="0 0 100 100" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><line x1="25" y1="32" x2="75" y2="32"/><line x1="50" y1="32" x2="50" y2="79"/><path d="M50 79 L40 90 M50 79 L60 90 M36 90 L64 90"/><path d="M25 32 L16 49 M25 32 L34 49 M16 49 L20 56 L30 56 L34 49"/><path d="M75 32 L66 49 M75 32 L84 49 M66 49 L70 56 L80 56 L84 49"/><circle cx="50" cy="28" r="3.4" fill="currentColor" stroke="none"/></svg>';
+var YT_ALLOW = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+</script>
 
-function renderPlaylist(){
-  const list = visibleList();
-  els.count.textContent = list.length + (list.length===1?' talk':' talks');
-  els.playlist.innerHTML = '';
-  if(!list.length){ els.playlist.innerHTML='<p class="pl-empty">No talks in this topic yet.</p>'; return; }
-  list.forEach(({v,i}) => {
-    const b=document.createElement('button');
-    b.className='pl-item'; b.type='button';
-    b.setAttribute('aria-current', String(i===current));
-    b.innerHTML = thumb(v) + '<span class="pl-body"><span class="pl-title">'+v.title+
-      '</span><span class="pl-speaker">'+v.speaker+'</span></span>';
-    b.addEventListener('click', ()=>{ current=i; renderPlaylist(); renderFeatured(); resetPlayer();
-      document.querySelector('.player').scrollIntoView({block:'nearest'}); });
-    els.playlist.appendChild(b);
-  });
-}
+<script>
+/* Lectures come from the "Videos" list in the editor (file: _data/videos.yml). */
+var VIDEOS = {{ site.data.videos | jsonify }};
 
-function renderFeatured(){
-  const v = VIDEOS[current];
-  els.topic.textContent=v.topic; els.title.textContent=v.title; els.by.textContent=v.speaker;
-  els.date.textContent='Recorded '+v.date; els.dur.textContent=v.duration; els.desc.textContent=v.description;
-  els.posterTitle.textContent=v.title;
-}
+(function(){
+  var mediaEl = document.querySelector('.media');
+  if(!VIDEOS || !VIDEOS.length){
+    mediaEl.innerHTML = '<p style="color:var(--ink-2)">New talks will appear here.</p>';
+    return;
+  }
+  VIDEOS.forEach(function(v){ v.youtubeId = ytId(v.youtube); });
 
-function resetPlayer(){
-  els.slot.innerHTML = ''+
-    '<button class="poster" id="poster" type="button" aria-label="Play video">'+MARK+
-    '<span class="play">'+PLAY_ICON+'</span>'+
-    '<span class="p-title" id="posterTitle"></span>'+
-    '<span class="note" id="note">Add a YouTube link to this entry to enable playback.</span>'+
-    '</button>';
-  els.posterTitle = document.getElementById('posterTitle');
-  els.note = document.getElementById('note');
-  els.posterTitle.textContent = VIDEOS[current].title;
-  bindPoster();
-}
+  var els = {
+    filters: document.getElementById('filters'),
+    playlist: document.getElementById('playlist'),
+    slot: document.getElementById('playerSlot'),
+    topic: document.getElementById('vTopic'), title: document.getElementById('vTitle'),
+    by: document.getElementById('vBy'), date: document.getElementById('vDate'),
+    dur: document.getElementById('vDur'), desc: document.getElementById('vDesc'),
+    count: document.getElementById('plCount')
+  };
+  var current = 0, filter = 'All';
+  var topics = ['All'].concat(Array.from(new Set(VIDEOS.map(function(v){ return v.topic; }).filter(Boolean))));
 
-function bindPoster(){
-  const poster = document.getElementById('poster');
-  poster.addEventListener('click', ()=>{
-    const v = VIDEOS[current];
-    if(v.youtubeId){
-      const f=document.createElement('iframe');
-      f.src='https://www.youtube-nocookie.com/embed/'+v.youtubeId+'?autoplay=1&rel=0';
-      f.title=v.title; f.allow='accelerated-motion; autoplay; encrypted-media; picture-in-picture';
-      f.allowFullscreen=true; els.slot.innerHTML=''; els.slot.appendChild(f);
-    } else {
-      els.note.classList.add('show');
-      setTimeout(()=>els.note.classList.remove('show'), 2600);
+  function visibleList(){
+    return VIDEOS.map(function(v,i){ return {v:v,i:i}; })
+      .filter(function(o){ return filter === 'All' || o.v.topic === filter; });
+  }
+
+  function renderPlayer(play){
+    var v = VIDEOS[current];
+    if(play && v.youtubeId){
+      var f = document.createElement('iframe');
+      f.src = 'https://www.youtube-nocookie.com/embed/' + v.youtubeId + '?autoplay=1&playsinline=1&rel=0';
+      f.title = v.title; f.allow = YT_ALLOW; f.allowFullscreen = true;
+      els.slot.innerHTML = ''; els.slot.appendChild(f);
+      return;
     }
-  });
-}
+    els.slot.innerHTML =
+      '<button class="poster' + (v.youtubeId ? ' has-img' : '') + '" id="poster" type="button" aria-label="Play: ' + esc(v.title) + '">' +
+      (v.youtubeId ? '<img class="poster-img" alt="">' : MARK) +
+      '<span class="play">' + PLAY_ICON + '</span>' +
+      '<span class="p-title">' + esc(v.title) + '</span>' +
+      '<span class="note" id="note">Add a YouTube link to this entry to enable playback.</span></button>';
+    var img = els.slot.querySelector('.poster-img');
+    if(img) loadThumb(img, v.youtubeId, ['maxresdefault', 'sddefault', 'hqdefault']);
+    document.getElementById('poster').addEventListener('click', function(){
+      if(v.youtubeId){ renderPlayer(true); }
+      else {
+        var n = document.getElementById('note'); n.classList.add('show');
+        setTimeout(function(){ n.classList.remove('show'); }, 2600);
+      }
+    });
+  }
 
-renderFilters(); renderPlaylist(); renderFeatured(); bindPoster();
+  function renderFeatured(){
+    var v = VIDEOS[current];
+    els.topic.textContent = v.topic || ''; els.topic.hidden = !v.topic;
+    els.title.textContent = v.title; els.by.textContent = v.speaker || '';
+    els.date.textContent = v.date ? 'Recorded ' + v.date : ''; els.dur.textContent = v.duration || '';
+    els.desc.textContent = v.description || '';
+  }
+
+  function renderFilters(){
+    els.filters.innerHTML = '';
+    if(topics.length < 3) return;
+    topics.forEach(function(t){
+      var b = document.createElement('button');
+      b.className = 'filter'; b.textContent = t; b.type = 'button';
+      b.setAttribute('aria-pressed', String(t === filter));
+      b.addEventListener('click', function(){
+        filter = t; var list = visibleList();
+        if(list.length && !list.some(function(o){ return o.i === current; })) current = list[0].i;
+        renderFilters(); renderPlaylist(); renderFeatured(); renderPlayer(false);
+      });
+      els.filters.appendChild(b);
+    });
+  }
+
+  function renderPlaylist(){
+    var list = visibleList();
+    els.count.textContent = list.length + (list.length === 1 ? ' talk' : ' talks');
+    els.playlist.innerHTML = '';
+    if(!list.length){ els.playlist.innerHTML = '<p class="pl-empty">No talks in this topic yet.</p>'; return; }
+    list.forEach(function(o){
+      var v = o.v, i = o.i;
+      var b = document.createElement('button');
+      b.className = 'pl-item'; b.type = 'button';
+      b.setAttribute('aria-current', String(i === current));
+      b.innerHTML =
+        '<span class="pl-thumb">' + MARK + (v.youtubeId ? '<img alt="">' : '') +
+        '<span class="pin">' + PLAY_ICON + '</span>' +
+        (v.duration ? '<span class="pl-dur">' + esc(v.duration) + '</span>' : '') + '</span>' +
+        '<span class="pl-body"><span class="pl-title">' + esc(v.title) + '</span>' +
+        '<span class="pl-speaker">' + esc(v.speaker || '') + '</span></span>';
+      var im = b.querySelector('img'); if(im) loadThumb(im, v.youtubeId, ['mqdefault']);
+      b.addEventListener('click', function(){
+        current = i; renderPlaylist(); renderFeatured(); renderPlayer(true);   // one click: select and play
+        document.querySelector('.player').scrollIntoView({block:'nearest'});
+      });
+      els.playlist.appendChild(b);
+    });
+  }
+
+  renderFilters(); renderPlaylist(); renderFeatured(); renderPlayer(false);
+})();
+</script>
+
+<script>
+/* Shorts come from the "Shorts" list in the editor (file: _data/shorts.yml). */
+var SHORTS = {{ site.data.shorts | jsonify }};
+
+(function(){
+  var list = SHORTS || [];
+  if(!list.length) return;
+  list.forEach(function(s){ s.id = ytId(s.youtube); });
+
+  document.getElementById('shorts').hidden = false;
+  document.getElementById('jumpShorts').hidden = false;
+  var grid = document.getElementById('shortsGrid');
+  var dlg = document.getElementById('shortDlg'), stage = document.getElementById('shortStage');
+  var cap = document.getElementById('shortCap'), cur = 0;
+
+  list.forEach(function(s, i){
+    var b = document.createElement('button');
+    b.type = 'button'; b.className = 'short';
+    b.setAttribute('aria-label', 'Watch: ' + s.title);
+    b.innerHTML = '<span class="short-thumb">' + MARK + (s.id ? '<img alt="">' : '') +
+      '<span class="short-play">' + PLAY_ICON + '</span></span>' +
+      '<span class="short-title">' + esc(s.title) + '</span>';
+    var im = b.querySelector('img'); if(im) loadThumb(im, s.id, ['hqdefault', 'mqdefault']);
+    b.addEventListener('click', function(){ openShort(i); });
+    grid.appendChild(b);
+  });
+
+  function show(i){
+    cur = (i + list.length) % list.length;
+    var s = list[cur];
+    stage.innerHTML = '';
+    if(s.id){
+      var f = document.createElement('iframe');
+      f.src = 'https://www.youtube-nocookie.com/embed/' + s.id + '?autoplay=1&playsinline=1&rel=0';
+      f.title = s.title; f.allow = YT_ALLOW; f.allowFullscreen = true;
+      stage.appendChild(f);
+    } else {
+      stage.innerHTML = '<p class="stage-note">Add a YouTube link to this short to enable playback.</p>';
+    }
+    cap.textContent = s.title;
+  }
+  function openShort(i){
+    if(typeof dlg.showModal !== 'function'){
+      if(list[i].id) window.open('https://www.youtube.com/shorts/' + list[i].id, '_blank', 'noopener');
+      return;
+    }
+    show(i); if(!dlg.open) dlg.showModal();
+  }
+  document.getElementById('shortClose').addEventListener('click', function(){ dlg.close(); });
+  document.getElementById('shortPrev').addEventListener('click', function(){ show(cur - 1); });
+  document.getElementById('shortNext').addEventListener('click', function(){ show(cur + 1); });
+  dlg.addEventListener('click', function(e){ if(e.target === dlg) dlg.close(); });   // click outside closes
+  dlg.addEventListener('close', function(){ stage.innerHTML = ''; });                // stops the video
+  document.addEventListener('keydown', function(e){
+    if(!dlg.open) return;
+    if(e.key === 'ArrowLeft') show(cur - 1);
+    if(e.key === 'ArrowRight') show(cur + 1);
+  });
+})();
 </script>
 </body>
 </html>
