@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+{% include analytics.html %}
 <title>{{ page.title }} — Adalah Council</title>
 <meta name="description" content="{{ page.deck | strip_html | escape }}">
 <link rel="canonical" href="{{ page.url | absolute_url }}">
@@ -220,8 +221,8 @@
     <nav class="nav" aria-label="Primary">
       <a href="{{ '/' | relative_url }}#about">About</a>
       <a href="{{ '/' | relative_url }}#programs">Programs</a>
-      <a href="{{ '/videos.html' | relative_url }}">Media</a>
-      <a href="{{ '/writing.html' | relative_url }}" aria-current="page">Writing</a>
+      <a href="{{ '/videos/' | relative_url }}">Media</a>
+      <a href="{{ '/writing/' | relative_url }}" aria-current="page">Writing</a>
       <a class="btn btn-primary btn-sm" href="https://www.zeffy.com/en-US/donation-form/donate-to-educate-our-community">Donate</a>
     </nav>
   </div>
@@ -229,7 +230,7 @@
 
 <main id="main">
   <header class="a-head container">
-    <p class="kicker"><a href="{{ '/writing.html' | relative_url }}" style="text-decoration:none">&larr; All writing</a> &nbsp;/&nbsp; {{ page.type | default: "Essay" }}</p>
+    <p class="kicker"><a href="{{ '/writing/' | relative_url }}" style="text-decoration:none">&larr; All writing</a> &nbsp;/&nbsp; {{ page.type | default: "Essay" }}</p>
     <h1 class="a-title">{{ page.title }}</h1>
     {% if page.deck %}<p class="a-deck">{{ page.deck }}</p>{% endif %}
     {% assign words = content | number_of_words %}
@@ -308,8 +309,8 @@
     <nav class="foot-nav" aria-label="Footer">
       <a href="{{ '/' | relative_url }}#about">About</a>
       <a href="{{ '/' | relative_url }}#programs">Programs</a>
-      <a href="{{ '/videos.html' | relative_url }}">Media</a>
-      <a href="{{ '/writing.html' | relative_url }}">Writing</a>
+      <a href="{{ '/videos/' | relative_url }}">Media</a>
+      <a href="{{ '/writing/' | relative_url }}">Writing</a>
       <a href="https://www.zeffy.com/en-US/donation-form/donate-to-educate-our-community">Donate</a>
     </nav>
     <p class="foot-copy">© 2025 Adalah Council, Inc.</p>
