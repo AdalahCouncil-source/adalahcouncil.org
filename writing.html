@@ -1,18 +1,20 @@
 ---
 title: Writing
+permalink: /writing/
 ---
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+{% include analytics.html %}
 <title>Writing — Adalah Council</title>
 <meta name="description" content="Essays, research, and statements from Adalah Council on contemporary ethical, legal, and social questions.">
-<link rel="canonical" href="https://adalahcouncil.org/writing.html">
+<link rel="canonical" href="{{ '/writing/' | absolute_url }}">
 <meta name="theme-color" content="#23252b">
-<link rel="icon" href="favicon.ico" sizes="any">
-<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="icon" href="{{ '/favicon.ico' | relative_url }}" sizes="any">
+<link rel="icon" type="image/svg+xml" href="{{ '/assets/favicon.svg' | relative_url }}">
+<link rel="apple-touch-icon" href="{{ '/assets/apple-touch-icon.png' | relative_url }}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
@@ -106,7 +108,7 @@ title: Writing
 
 <header class="site-header">
   <div class="bar container">
-    <a class="brand" href="index.html" aria-label="Adalah Council — home">
+    <a class="brand" href="{{ '/' | relative_url }}" aria-label="Adalah Council — home">
       <svg class="brand-mark" viewBox="0 0 100 100" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
         <line x1="25" y1="32" x2="75" y2="32"/><line x1="50" y1="32" x2="50" y2="79"/>
         <path d="M50 79 L40 90 M50 79 L60 90 M36 90 L64 90"/>
@@ -117,10 +119,10 @@ title: Writing
       <span class="brand-name">Adalah Council</span>
     </a>
     <nav class="nav" aria-label="Primary">
-      <a href="index.html#about">About</a>
-      <a href="index.html#programs">Programs</a>
-      <a href="videos.html">Media</a>
-      <a href="writing.html" aria-current="page">Writing</a>
+      <a href="{{ '/' | relative_url }}#about">About</a>
+      <a href="{{ '/' | relative_url }}#programs">Programs</a>
+      <a href="{{ '/videos/' | relative_url }}">Media</a>
+      <a href="{{ '/writing/' | relative_url }}" aria-current="page">Writing</a>
       <a class="btn btn-primary btn-sm" href="https://www.zeffy.com/en-US/donation-form/donate-to-educate-our-community">Donate</a>
     </nav>
   </div>
@@ -168,7 +170,7 @@ title: Writing
 
 <footer class="site-footer">
   <div class="foot container">
-    <a class="brand" href="index.html" aria-label="Adalah Council — home">
+    <a class="brand" href="{{ '/' | relative_url }}" aria-label="Adalah Council — home">
       <svg class="brand-mark" viewBox="0 0 100 100" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
         <line x1="25" y1="32" x2="75" y2="32"/><line x1="50" y1="32" x2="50" y2="79"/>
         <path d="M50 79 L40 90 M50 79 L60 90 M36 90 L64 90"/>
@@ -179,10 +181,10 @@ title: Writing
       <span class="brand-name">Adalah Council</span>
     </a>
     <nav class="foot-nav" aria-label="Footer">
-      <a href="index.html#about">About</a>
-      <a href="index.html#programs">Programs</a>
-      <a href="videos.html">Media</a>
-      <a href="writing.html">Writing</a>
+      <a href="{{ '/' | relative_url }}#about">About</a>
+      <a href="{{ '/' | relative_url }}#programs">Programs</a>
+      <a href="{{ '/videos/' | relative_url }}">Media</a>
+      <a href="{{ '/writing/' | relative_url }}">Writing</a>
       <a href="https://www.zeffy.com/en-US/donation-form/donate-to-educate-our-community">Donate</a>
     </nav>
     <p class="foot-copy">© 2025 Adalah Council, Inc.</p>
