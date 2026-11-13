@@ -9,7 +9,7 @@ future: true                       # never hide an article because of its date
 collections:
   articles:
     output: true                   # each article becomes its own page
-    permalink: /writing/:name/
+    permalink: /journal/:name/
 
 markdown: kramdown
 kramdown:
