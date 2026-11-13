@@ -5,6 +5,8 @@ date: 2025-10-01
 type: Essay
 author: Adalah Council
 published: true
+issue: "Volume 1, Issue 1"
+lead: true
 layout: article
 ---
 
