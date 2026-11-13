@@ -1,0 +1,336 @@
+---
+title: Journal
+permalink: /journal/
+---
+{%- assign J = site.data.journal -%}
+{%- assign jtitle = J.title | default: "Journal" -%}
+{%- assign all = site.articles | sort: "date" | reverse -%}
+{%- assign newest = all | first -%}
+{%- assign cur = newest.issue | default: "" -%}
+{%- assign lead = nil -%}
+{%- for a in all -%}
+  {%- assign ai = a.issue | default: "" -%}
+  {%- if ai == cur and a.lead == true -%}{%- unless lead -%}{%- assign lead = a -%}{%- endunless -%}{%- endif -%}
+{%- endfor -%}
+{%- unless lead -%}{%- assign lead = newest -%}{%- endunless -%}
+{%- assign m = newest.date | date: "%-m" | plus: 0 -%}
+{%- if m >= 3 and m <= 5 -%}{%- assign season = "Spring" -%}{%- elsif m >= 6 and m <= 8 -%}{%- assign season = "Summer" -%}{%- elsif m >= 9 and m <= 11 -%}{%- assign season = "Autumn" -%}{%- else -%}{%- assign season = "Winter" -%}{%- endif -%}
+{%- assign groups = all | group_by: "issue" -%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{% include analytics.html %}
+<title>{{ jtitle }} — Adalah Council</title>
+<meta name="description" content="{{ J.subtitle | default: 'Essays, research, and reviews from Adalah Council.' | escape }}">
+<link rel="canonical" href="{{ '/journal/' | absolute_url }}">
+<meta name="theme-color" content="#23252b">
+<link rel="icon" href="{{ '/favicon.ico' | relative_url }}" sizes="any">
+<link rel="icon" type="image/svg+xml" href="{{ '/assets/favicon.svg' | relative_url }}">
+<link rel="apple-touch-icon" href="{{ '/assets/apple-touch-icon.png' | relative_url }}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Adalah Council">
+<meta property="og:title" content="{{ jtitle | escape }}">
+<meta property="og:description" content="{{ J.subtitle | escape }}">
+<meta property="og:url" content="{{ '/journal/' | absolute_url }}">
+<meta property="og:image" content="{{ '/assets/adalah-og.png' | absolute_url }}">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+
+  :root{
+    --ink:#23252b; --ink-2:#585b63; --paper:#f2f1ec; --cream:#e3e2dd; --white:#faf9f5;
+    --accent:#2c4159; --accent-dk:#223247; --line:rgba(35,37,43,.14); --line-2:rgba(35,37,43,.24);
+    --pad-x:clamp(1.25rem,4vw,2rem);
+  }
+  *,*::before,*::after{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0; background:var(--paper); color:var(--ink); font-family:"Lora",Georgia,serif;
+    font-size:clamp(1.02rem,.6rem + .8vw,1.1rem); line-height:1.7; -webkit-font-smoothing:antialiased}
+  .container{max-width:1000px; margin-inline:auto; padding-inline:var(--pad-x)}
+  h1,h2,h3{font-weight:600; line-height:1.18; letter-spacing:-.012em; margin:0}
+  a{color:var(--accent); text-underline-offset:3px}
+  .skip{position:absolute; left:-999px; top:0; z-index:100; background:var(--ink); color:#fff; padding:.6rem 1rem;
+    font-family:"Poppins",sans-serif; font-size:.9rem}
+  .skip:focus{left:0; color:#fff}
+  :where(:focus-visible){outline:2px solid var(--accent); outline-offset:2px; border-radius:2px}
+  .btn{display:inline-flex; align-items:center; justify-content:center; font-family:"Poppins",sans-serif; font-weight:500;
+    font-size:.94rem; padding:.82em 1.35em; border-radius:3px; border:1px solid transparent; text-decoration:none;
+    white-space:nowrap; transition:background-color .18s}
+  .btn-primary{background:var(--accent); color:#fff}
+  .btn-primary:hover{background:var(--accent-dk); color:#fff}
+  .btn-sm{padding:.62em 1.05em; font-size:.9rem}
+
+  .site-header{position:sticky; top:0; z-index:50; background:rgba(242,241,236,.9); backdrop-filter:saturate(1.1) blur(8px);
+    border-bottom:1px solid var(--line)}
+  .bar{display:flex; align-items:center; justify-content:space-between; gap:.75rem 1.25rem; flex-wrap:wrap; padding-block:.7rem;
+    max-width:1200px}
+  .brand{display:inline-flex; align-items:center; gap:.6rem; text-decoration:none; color:var(--ink)}
+  .brand-mark{width:26px; height:26px; color:var(--accent); flex:none}
+  .brand-name{font-family:"Poppins",sans-serif; font-weight:600; font-size:1.12rem; letter-spacing:-.01em}
+  .nav{display:flex; align-items:center; gap:clamp(.85rem,2.2vw,1.5rem)}
+  .nav a:not(.btn){font-family:"Poppins",sans-serif; font-weight:500; font-size:.95rem; color:var(--ink); text-decoration:none;
+    padding:.2rem 0; border-bottom:1.5px solid transparent}
+  .nav a:not(.btn):hover{color:var(--accent); border-bottom-color:var(--accent)}
+  .nav a[aria-current="page"]{color:var(--accent); border-bottom-color:var(--accent)}
+
+
+  .container{max-width:1160px}
+  .j-mast{padding:clamp(2rem,4vw,3rem) 0 .4rem}
+  .j-mast .over{font-family:"Poppins",sans-serif;font-size:.82rem;letter-spacing:.02em;color:var(--accent);margin:0 0 .55rem}
+  .j-mast h1{font-size:clamp(2rem,1.3rem + 2.3vw,3rem)}
+  .j-mast .sub{font-style:italic;color:var(--ink-2);margin:.5rem 0 0;font-size:clamp(1.02rem,.9rem + .5vw,1.15rem)}
+
+  .hero{display:grid;grid-template-columns:1.7fr 1fr;gap:clamp(1.5rem,3vw,2.8rem);padding:1.8rem 0 2.6rem;
+    border-bottom:1px solid var(--line);align-items:center}
+  .tag{display:inline-block;font-family:"Poppins",sans-serif;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;
+    color:var(--accent);border:1px solid var(--line-2);border-radius:4px;padding:.2rem .5rem;margin-bottom:1rem}
+  .hero-main h2{font-size:clamp(1.8rem,1.2rem + 2vw,2.8rem);text-wrap:balance}
+  .hero-main h2 a{color:var(--ink);text-decoration:none}
+  .hero-main h2 a:hover{color:var(--accent)}
+  .hero-main .byline{font-family:"Poppins",sans-serif;font-weight:500;color:var(--ink);margin:.9rem 0 .2rem}
+  .hero-main .when{font-family:"Poppins",sans-serif;font-size:.85rem;color:var(--ink-2);margin-bottom:1rem}
+  .hero-main .abstract{color:#31333a;max-width:54ch;margin:0 0 1.5rem}
+  .links{display:flex;gap:.6rem;flex-wrap:wrap}
+  .btn-ghost{background:transparent;color:var(--ink);border-color:var(--line-2)}
+  .btn-ghost:hover{border-color:var(--ink)}
+
+  .issue-card{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:1.4rem}
+  .cover{aspect-ratio:3/4;border-radius:8px;background:linear-gradient(160deg,#2c4159,#1b1d23);position:relative;overflow:hidden;
+    display:grid;place-items:center;margin-bottom:1.1rem;color:#e8e6df}
+  .cover .cv-title{position:absolute;top:16px;left:18px;right:18px;font-family:"Lora",serif;font-weight:600;font-size:1.05rem;line-height:1.25}
+  .cover .cv-mark{width:46px;height:46px;color:rgba(227,226,221,.55)}
+  .cover .cv-issue{position:absolute;bottom:14px;left:18px;right:18px;font-family:"Poppins",sans-serif;font-size:.74rem;
+    letter-spacing:.1em;text-transform:uppercase}
+  .issue-card h3{font-size:1.15rem}
+  .issue-card .cap{font-family:"Poppins",sans-serif;font-size:.84rem;color:var(--ink-2);margin:.25rem 0 0}
+  .issue-card .browse{display:inline-block;margin-top:.9rem;font-family:"Poppins",sans-serif;font-weight:500;font-size:.9rem;
+    color:var(--accent);text-decoration:none;border-bottom:1.5px solid var(--line-2);padding-bottom:1px}
+  .issue-card .browse:hover{border-bottom-color:var(--accent)}
+
+  .sec-h{font-family:"Poppins",sans-serif;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);
+    margin:0;padding-top:2rem}
+  .chips{display:flex;gap:.5rem;flex-wrap:wrap;padding:1.1rem 0 1.4rem}
+  .chips:empty{padding:.7rem 0}
+  .chip{font-family:"Poppins",sans-serif;font-size:.85rem;padding:.4rem .9rem;border-radius:999px;border:1px solid var(--line-2);
+    color:var(--ink);background:transparent;cursor:pointer;transition:background-color .16s,border-color .16s}
+  .chip:hover{border-color:var(--ink)}
+  .chip[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1rem,2vw,1.4rem);padding-bottom:1rem}
+  .card{background:var(--white);border:1px solid var(--line);border-radius:10px;padding:1.4rem;display:flex;flex-direction:column;
+    transition:border-color .16s}
+  .card:hover{border-color:var(--accent)}
+  .card .ct{font-family:"Poppins",sans-serif;font-size:.68rem;letter-spacing:.05em;text-transform:uppercase;color:var(--accent);margin-bottom:.7rem}
+  .card h3{font-size:1.18rem;margin-bottom:.4rem}
+  .card h3 a{color:var(--ink);text-decoration:none}
+  .card h3 a:hover{color:var(--accent)}
+  .card .auth{font-family:"Poppins",sans-serif;font-size:.82rem;color:var(--ink-2);margin-bottom:.7rem}
+  .card .ab{font-size:.95rem;line-height:1.55;color:var(--ink-2);margin:0 0 1rem}
+  .card .cfoot{margin-top:auto;display:flex;gap:1.1rem;font-family:"Poppins",sans-serif;font-size:.86rem;font-weight:500}
+  .card .cfoot a{text-decoration:none}
+  .card .cfoot a:hover{text-decoration:underline}
+  .empty{color:var(--ink-2);padding:1.2rem 0 2rem}
+
+  .archive{padding:1rem 0 1rem;margin-top:1.6rem;border-top:1px solid var(--line)}
+  .archive h2{font-size:clamp(1.4rem,1rem + 1.3vw,1.8rem);padding-top:2rem}
+  .past{padding:1.4rem 0 .4rem}
+  .past h3{font-size:1.12rem}
+  .past .cap{font-family:"Poppins",sans-serif;font-size:.82rem;color:var(--ink-2);margin:.15rem 0 .5rem}
+  .prow{display:grid;grid-template-columns:150px minmax(0,1fr);gap:1rem;padding:.75rem 0;border-top:1px solid var(--line)}
+  .prow .pt{font-family:"Poppins",sans-serif;font-size:.72rem;letter-spacing:.05em;text-transform:uppercase;color:var(--accent);padding-top:.3rem}
+  .prow a{color:var(--ink);text-decoration:none;font-weight:600;font-size:1.05rem}
+  .prow a:hover{color:var(--accent)}
+  .prow .pa{font-family:"Poppins",sans-serif;font-size:.82rem;color:var(--ink-2)}
+
+  .about-j{margin:2.4rem 0 clamp(3rem,6vw,4.5rem);background:var(--cream);border-radius:12px;padding:clamp(1.5rem,3vw,2.2rem)}
+  .about-j h2{font-size:1.25rem;margin-bottom:.6rem}
+  .about-j p{margin:0 0 .7rem;max-width:68ch;color:#31333a}
+  .about-j p:last-child{margin-bottom:0}
+  .about-j .sm{font-family:"Poppins",sans-serif;font-size:.9rem;color:var(--ink-2)}
+  .nospace{padding-bottom:clamp(3rem,6vw,4.5rem)}
+  .site-footer{background:var(--paper); border-top:1px solid var(--line-2); padding-block:2.4rem}
+  .foot{display:flex; align-items:center; justify-content:space-between; gap:1rem 2rem; flex-wrap:wrap; max-width:1200px}
+  .foot-nav{display:flex; gap:1.3rem; flex-wrap:wrap}
+  .foot-nav a{font-family:"Poppins",sans-serif; font-weight:500; font-size:.92rem; color:var(--ink); text-decoration:none}
+  .foot-nav a:hover{color:var(--accent)}
+  .foot-copy{font-family:"Poppins",sans-serif; font-size:.85rem; color:var(--ink-2)}
+
+
+  .bar,.foot{max-width:1160px}
+  @media (prefers-reduced-motion:reduce){*{transition:none !important}}
+  @media (max-width:900px){
+    .hero{grid-template-columns:1fr}
+    .issue-card{display:grid;grid-template-columns:110px minmax(0,1fr);gap:1.1rem;align-items:center}
+    .cover{margin-bottom:0}
+    .cover .cv-title{display:none}
+    .cover .cv-mark{width:30px;height:30px}
+    .cover .cv-issue{font-size:.56rem;left:8px;right:8px;bottom:8px}
+    .grid{grid-template-columns:1fr 1fr}
+  }
+  @media (max-width:640px){
+    .grid{grid-template-columns:1fr}
+    .prow{grid-template-columns:1fr;gap:.1rem}
+    .bar{justify-content:center} .brand{width:100%; justify-content:center} .nav{width:100%; justify-content:center}
+    .foot{justify-content:center; text-align:center}
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="bar container">
+    <a class="brand" href="{{ '/' | relative_url }}" aria-label="Adalah Council — home">
+      <svg class="brand-mark" viewBox="0 0 100 100" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="25" y1="32" x2="75" y2="32"/><line x1="50" y1="32" x2="50" y2="79"/>
+        <path d="M50 79 L40 90 M50 79 L60 90 M36 90 L64 90"/>
+        <path d="M25 32 L16 49 M25 32 L34 49 M16 49 L20 56 L30 56 L34 49"/>
+        <path d="M75 32 L66 49 M75 32 L84 49 M66 49 L70 56 L80 56 L84 49"/>
+        <circle cx="50" cy="28" r="3.4" fill="currentColor" stroke="none"/>
+      </svg>
+      <span class="brand-name">Adalah Council</span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="{{ '/' | relative_url }}#about">About</a>
+      <a href="{{ '/' | relative_url }}#programs">Programs</a>
+      <a href="{{ '/videos/' | relative_url }}">Media</a>
+      <a href="{{ '/journal/' | relative_url }}" aria-current="page">Journal</a>
+      <a class="btn btn-primary btn-sm" href="https://www.zeffy.com/en-US/donation-form/donate-to-educate-our-community">Donate</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<div class="container">
+  <div class="j-mast">
+    <p class="over">Journal</p>
+    <h1>{{ jtitle }}</h1>
+    {% if J.subtitle %}<p class="sub">{{ J.subtitle }}</p>{% endif %}
+  </div>
+
+  {% if newest %}
+  <section class="hero" aria-label="Featured article">
+    <div class="hero-main">
+      <span class="tag">Featured {{ lead.type | default: "Essay" }}</span>
+      <h2><a href="{{ lead.url | relative_url }}">{{ lead.title }}</a></h2>
+      <div class="byline">{{ lead.author | default: "Adalah Council" }}</div>
+      <div class="when">{{ lead.date | date: "%B %-d, %Y" }}</div>
+      {% if lead.deck %}<p class="abstract">{{ lead.deck }}</p>{% endif %}
+      <div class="links">
+        <a class="btn btn-primary" href="{{ lead.url | relative_url }}">Read {{ lead.type | default: "essay" | downcase }}</a>
+        {% if lead.pdf %}<a class="btn btn-ghost" href="{% if lead.pdf contains '://' %}{{ lead.pdf }}{% else %}{{ lead.pdf | relative_url }}{% endif %}">PDF</a>{% endif %}
+      </div>
+    </div>
+    <aside class="issue-card" aria-label="Current issue">
+      <div class="cover">
+        <span class="cv-title">{{ jtitle }}</span>
+        <svg class="cv-mark" viewBox="0 0 100 100" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><line x1="25" y1="32" x2="75" y2="32"/><line x1="50" y1="32" x2="50" y2="79"/><path d="M50 79 L40 90 M50 79 L60 90 M36 90 L64 90"/><path d="M25 32 L16 49 M25 32 L34 49 M16 49 L20 56 L30 56 L34 49"/><path d="M75 32 L66 49 M75 32 L84 49 M66 49 L70 56 L80 56 L84 49"/><circle cx="50" cy="28" r="3.4" fill="currentColor" stroke="none"/></svg>
+        <span class="cv-issue">{% if cur != "" %}{{ cur }}{% else %}{{ season }} {{ newest.date | date: "%Y" }}{% endif %}</span>
+      </div>
+      <div>
+        <h3>{% if cur != "" %}Current issue{% else %}Latest writing{% endif %}</h3>
+        <p class="cap">{% if cur != "" %}{{ cur }}, {% endif %}{{ season }} {{ newest.date | date: "%Y" }}</p>
+        {% if groups.size > 1 %}<a class="browse" href="#archive">Browse all issues</a>{% endif %}
+      </div>
+    </aside>
+  </section>
+
+  {% assign others = 0 %}
+  {% for a in all %}{% assign ai = a.issue | default: "" %}{% if ai == cur and a.url != lead.url %}{% assign others = others | plus: 1 %}{% endif %}{% endfor %}
+  {% if others > 0 %}
+  <section aria-labelledby="inIssue">
+    <h2 class="sec-h" id="inIssue">{% if cur != "" %}Also in this issue{% else %}More writing{% endif %}</h2>
+    <div class="chips" id="chips" role="group" aria-label="Filter by type"></div>
+    <div class="grid" id="grid">
+      {% for a in all %}{% assign ai = a.issue | default: "" %}{% if ai == cur and a.url != lead.url %}
+      <article class="card" data-type="{{ a.type | default: 'Essay' | escape }}">
+        <div class="ct">{{ a.type | default: "Essay" }}</div>
+        <h3><a href="{{ a.url | relative_url }}">{{ a.title }}</a></h3>
+        <div class="auth">{{ a.author | default: "Adalah Council" }}</div>
+        {% if a.deck %}<p class="ab">{{ a.deck }}</p>{% endif %}
+        <div class="cfoot"><a href="{{ a.url | relative_url }}">Read</a>{% if a.pdf %}<a href="{% if a.pdf contains '://' %}{{ a.pdf }}{% else %}{{ a.pdf | relative_url }}{% endif %}">PDF</a>{% endif %}</div>
+      </article>
+      {% endif %}{% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  {% if groups.size > 1 %}
+  <section class="archive" id="archive" aria-labelledby="archTitle">
+    <h2 id="archTitle">Past issues</h2>
+    {% for g in groups %}{% assign gname = g.name | default: "" %}{% if gname != cur %}
+    {% assign gfirst = g.items | first %}
+    <div class="past">
+      <h3>{% if gname != "" %}{{ gname }}{% else %}Earlier writing{% endif %}</h3>
+      <p class="cap">{{ gfirst.date | date: "%B %Y" }}</p>
+      {% for a in g.items %}
+      <div class="prow">
+        <span class="pt">{{ a.type | default: "Essay" }}</span>
+        <span><a href="{{ a.url | relative_url }}">{{ a.title }}</a><br><span class="pa">{{ a.author | default: "Adalah Council" }}</span></span>
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}{% endfor %}
+  </section>
+  {% endif %}
+
+  {% else %}
+  <p class="empty">The first issue is in preparation.</p>
+  {% endif %}
+
+  {% if J.about %}
+  <section class="about-j" aria-labelledby="aboutJ">
+    <h2 id="aboutJ">About the journal</h2>
+    <p>{{ J.about }}</p>
+    {% if J.submissions_email %}<p class="sm">Submissions and correspondence: <a href="mailto:{{ J.submissions_email }}">{{ J.submissions_email }}</a></p>{% endif %}
+  </section>
+  {% else %}<div class="nospace"></div>{% endif %}
+</div>
+</main>
+
+<footer class="site-footer">
+  <div class="foot container">
+    <a class="brand" href="{{ '/' | relative_url }}" aria-label="Adalah Council — home">
+      <svg class="brand-mark" viewBox="0 0 100 100" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="25" y1="32" x2="75" y2="32"/><line x1="50" y1="32" x2="50" y2="79"/>
+        <path d="M50 79 L40 90 M50 79 L60 90 M36 90 L64 90"/>
+        <path d="M25 32 L16 49 M25 32 L34 49 M16 49 L20 56 L30 56 L34 49"/>
+        <path d="M75 32 L66 49 M75 32 L84 49 M66 49 L70 56 L80 56 L84 49"/>
+        <circle cx="50" cy="28" r="3.4" fill="currentColor" stroke="none"/>
+      </svg>
+      <span class="brand-name">Adalah Council</span>
+    </a>
+    <nav class="foot-nav" aria-label="Footer">
+      <a href="{{ '/' | relative_url }}#about">About</a>
+      <a href="{{ '/' | relative_url }}#programs">Programs</a>
+      <a href="{{ '/videos/' | relative_url }}">Media</a>
+      <a href="{{ '/journal/' | relative_url }}">Journal</a>
+      <a href="https://www.zeffy.com/en-US/donation-form/donate-to-educate-our-community">Donate</a>
+    </nav>
+    <p class="foot-copy">© 2025 Adalah Council, Inc.</p>
+  </div>
+</footer>
+
+<script>
+  // Type filter for the current issue. Buttons appear only when there are two or more types.
+  (function(){
+    var chips = document.getElementById('chips'); if(!chips) return;
+    var cards = [].slice.call(document.querySelectorAll('#grid .card'));
+    var types = []; cards.forEach(function(c){ var t=c.getAttribute('data-type'); if(types.indexOf(t)<0) types.push(t); });
+    if(types.length < 2) return;
+    ['All'].concat(types).forEach(function(t, i){
+      var b = document.createElement('button'); b.type='button'; b.className='chip'; b.textContent=t;
+      b.setAttribute('aria-pressed', String(i===0));
+      b.addEventListener('click', function(){
+        [].forEach.call(chips.children, function(x){ x.setAttribute('aria-pressed', String(x===b)); });
+        cards.forEach(function(c){ c.style.display = (t==='All' || c.getAttribute('data-type')===t) ? '' : 'none'; });
+      });
+      chips.appendChild(b);
+    });
+  })();
+</script>
+</body>
+</html>
