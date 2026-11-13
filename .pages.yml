@@ -4,7 +4,7 @@ media:
 
 content:
   - name: articles
-    label: Articles
+    label: Journal articles
     type: collection
     path: _articles
     format: yaml-frontmatter
@@ -36,6 +36,21 @@ content:
         label: Author
         type: string
         default: Adalah Council
+      - name: issue
+        label: Issue (for example Volume 1, Issue 1). Type it exactly the same for every article in that issue.
+        type: string
+      - name: lead
+        label: Feature this as the lead article of its issue
+        type: boolean
+        default: false
+      - name: pdf
+        label: PDF version (optional)
+        type: file
+        options:
+          extensions: [pdf]
+      - name: author_bio
+        label: Author bio (optional, one or two sentences shown at the end of the article)
+        type: text
       - name: published
         label: Published (turn off to keep it hidden as a draft)
         type: boolean
@@ -91,4 +106,24 @@ content:
         required: true
       - name: youtube
         label: YouTube Shorts link (paste the full link)
+        type: string
+
+  - name: journal
+    label: Journal settings
+    type: file
+    path: _data/journal.yml
+    format: yaml
+    fields:
+      - name: title
+        label: Journal name
+        type: string
+        required: true
+      - name: subtitle
+        label: Subtitle
+        type: string
+      - name: about
+        label: About the journal (short paragraph shown at the bottom of the Journal page)
+        type: text
+      - name: submissions_email
+        label: Email for submissions
         type: string
