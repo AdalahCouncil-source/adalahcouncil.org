@@ -15,8 +15,16 @@
 <meta property="og:title" content="{{ page.title | escape }}">
 <meta property="og:description" content="{{ page.deck | strip_html | escape }}">
 <meta property="og:url" content="{{ page.url | absolute_url }}">
-<meta property="og:image" content="{{ '/assets/adalah-og.png' | absolute_url }}">
+{%- assign og = '/assets/adalah-og.png' -%}
+{%- if page.share_image -%}{%- assign og = page.share_image -%}
+{%- elsif page.image -%}{%- assign ogext = page.image | split: '.' | last | downcase -%}
+  {%- if ogext == 'png' or ogext == 'jpg' or ogext == 'jpeg' -%}{%- assign og = page.image -%}{%- endif -%}
+{%- endif -%}
+{%- if og contains '://' -%}{%- assign og_abs = og -%}{%- else -%}{%- assign og_abs = og | absolute_url -%}{%- endif %}
+<meta property="og:image" content="{{ og_abs }}">
+<meta property="og:image:alt" content="{{ page.title | escape }}">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="{{ og_abs }}">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -26,7 +34,8 @@
   "datePublished": "{{ page.date | date_to_xmlschema }}",
   "author": { "@type": "Organization", "name": {{ page.author | default: "Adalah Council" | jsonify }} },
   "publisher": { "@type": "Organization", "name": "Adalah Council, Inc.", "url": "https://adalahcouncil.org/" },
-  "mainEntityOfPage": "{{ page.url | absolute_url }}"
+  "mainEntityOfPage": "{{ page.url | absolute_url }}",
+  "image": {{ og_abs | jsonify }}
 }
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -194,6 +203,7 @@
   .foot-nav a{font-family:"Poppins",sans-serif; font-weight:500; font-size:.92rem; color:var(--ink); text-decoration:none}
   .foot-nav a:hover{color:var(--accent)}
   .foot-copy{font-family:"Poppins",sans-serif; font-size:.85rem; color:var(--ink-2)}
+  .foot-copy a{color:var(--ink-2)} .foot-copy a:hover{color:var(--accent)}
 
 
   /* ---- guides: comparison tables, steps, flowchart, notes, bands ---- */
@@ -373,7 +383,7 @@
       <a href="{{ '/journal/' | relative_url }}">Journal</a>
       <a href="https://www.zeffy.com/en-US/donation-form/donate-to-educate-our-community">Donate</a>
     </nav>
-    <p class="foot-copy">© 2025 Adalah Council, Inc.</p>
+    <p class="foot-copy">© {{ site.time | date: "%Y" }} Adalah Council, Inc. · <a href="{{ '/privacy/' | relative_url }}">Privacy</a></p>
   </div>
 </footer>
 
