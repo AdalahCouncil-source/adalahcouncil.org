@@ -1,13 +1,8 @@
----
-title: Media
-permalink: /videos/
----
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-{% include analytics.html %}
 <title>Lectures &amp; Talks — Adalah Council</title>
 <meta name="description" content="Recorded lectures, seminars, and talks from Adalah Council — serious Islamic scholarship on contemporary ethical, legal, and social questions.">
 <link rel="canonical" href="{{ '/videos/' | absolute_url }}">
@@ -204,7 +199,7 @@ permalink: /videos/
     .aside{border-top:1px solid var(--line); padding-top:1.6rem}
   }
   @media (max-width:560px){
-    .bar{justify-content:center} .brand{width:100%; justify-content:center} .nav{width:100%; justify-content:center}
+    .bar{justify-content:center} .brand{width:100%; justify-content:center} .nav{width:100%; justify-content:center; flex-wrap:wrap; gap:.5rem 1rem}
     .foot{justify-content:center; text-align:center}
     .pl-item{grid-template-columns:108px minmax(0,1fr)} .pl-thumb{width:108px}
   }
