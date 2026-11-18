@@ -11,4 +11,5 @@ layout: article
 wide: true
 include: guides/from-deathbed-to-taziyah.html
 image: /assets/journal/from-deathbed-to-taziyah.svg
+share_image: /assets/journal/from-deathbed-to-taziyah-share.png
 ---

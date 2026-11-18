@@ -8,4 +8,6 @@ issue: "Volume 1, Issue 1"
 published: true
 layout: article
 include: guides/khatibs-manual.html
+share_image: /assets/journal/khatibs-manual-share.png
+pdf: /assets/journal/khatibs-manual.pdf
 ---
