@@ -10,4 +10,5 @@ published: true
 layout: article
 wide: true
 include: guides/from-deathbed-to-taziyah.html
+image: /assets/journal/from-deathbed-to-taziyah.svg
 ---
