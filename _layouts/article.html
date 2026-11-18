@@ -3,7 +3,6 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-{% include analytics.html %}
 <title>{{ page.title }} — Adalah Council</title>
 <meta name="description" content="{{ page.deck | strip_html | escape }}">
 <link rel="canonical" href="{{ page.url | absolute_url }}">
@@ -82,6 +81,8 @@
     padding-block:clamp(2.25rem,5vw,3.5rem) clamp(4rem,8vw,6rem)}
   @media (min-width:1024px){
     .reader{grid-template-columns:240px minmax(0,720px); justify-content:center; gap:clamp(2rem,4vw,4rem)}
+    .reader.wide{grid-template-columns:240px minmax(0,900px)}
+    .reader.wide .article{max-width:900px}
   }
 
   /* article header */
@@ -131,7 +132,7 @@
     display:block; padding:.3rem 0}
 
   /* article body */
-  .article{max-width:720px; margin-inline:auto; font-size:var(--read); line-height:1.82; color:#2b2d34}
+  .article{width:100%; min-width:0; max-width:720px; margin-inline:auto; font-size:var(--read); line-height:1.82; color:#2b2d34}
   .article p{margin:0 0 1.35em}
   .article > p:first-of-type::first-letter{float:left; font-weight:600; font-size:3.3em; line-height:.82;
     padding:.06em .1em 0 0; color:var(--ink)}
@@ -194,9 +195,65 @@
   .foot-nav a:hover{color:var(--accent)}
   .foot-copy{font-family:"Poppins",sans-serif; font-size:.85rem; color:var(--ink-2)}
 
+
+  /* ---- guides: comparison tables, steps, flowchart, notes, bands ---- */
+  .guide{--quiet:var(--ink-2); --faint:#8a8681; --rule:var(--line-2); --paper:var(--white);
+    --red:#7f1c21; --red-ink:#7f1c21; --beige:#ece3da; --rose:#e6dada; --tan:#8a6a4c; --ink:#1c1b19}
+  .guide .measure{max-width:40rem}
+  .guide section{padding:2.2rem 0 1rem; border-bottom:1px solid var(--rule); scroll-margin-top:96px}
+  .guide section:last-of-type{border-bottom:0}
+  .guide section > h2{margin:0 0 .9rem; display:flex; gap:1rem; align-items:baseline; font-size:clamp(1.5rem,1.2rem + 1.2vw,1.9rem)}
+  .guide h2 .n{font-family:"Poppins",sans-serif; font-weight:500; font-size:.7em; color:var(--tan); min-width:1.2rem}
+  .guide h3{font-size:1.2em; margin:1.8rem 0 .6rem}
+  .guide p{margin:0 0 1em}
+  .guide .point{font-size:1.05em}
+  .guide .scroll{overflow-x:auto; margin:1.2rem 0 1.6rem; -webkit-overflow-scrolling:touch}
+  .guide table{border-collapse:collapse; width:100%; min-width:40rem; font-size:.8em; line-height:1.55}
+  .guide th,.guide td{text-align:left; vertical-align:top; padding:.7em .8em .7em 0; border-top:1px solid var(--rule)}
+  .guide thead th{font-family:"Poppins",sans-serif; font-weight:600; font-size:.9em; line-height:1.3; color:var(--quiet);
+    border-top:0; border-bottom:1px solid var(--ink); padding-bottom:.55em}
+  .guide tbody th{font-weight:600; color:var(--ink); width:22%}
+  .guide td .rx{color:var(--red-ink)} .guide td.rx{color:var(--red-ink)}
+  .guide ol.steps{padding:0; margin:1rem 0 1.4rem; list-style:none; counter-reset:s}
+  .guide ol.steps > li{counter-increment:s; display:grid; grid-template-columns:2.2rem 1fr; padding:.75rem 0; border-top:1px solid var(--rule)}
+  .guide ol.steps > li::before{content:counter(s); font-family:"Lora",serif; font-weight:600; font-size:1.05em; line-height:1.5; color:var(--tan)}
+  .guide ol.steps b{font-weight:600}
+  .guide .school{display:block; color:var(--quiet); font-size:.92em; margin-top:.15rem}
+  .guide .school em{font-style:normal; color:var(--ink); font-weight:600}
+  .guide figure{margin:1.8rem 0 2rem; padding:1.4rem; background:var(--paper); border:1px solid var(--rule); border-radius:6px}
+  .guide figure svg{width:100%; height:auto; display:block}
+  .guide figcaption{font-family:"Poppins",sans-serif; font-size:.78em; color:var(--quiet); margin-top:.8rem}
+  .guide .fig-label{font-family:"Poppins",sans-serif; font-weight:500; font-size:.68em; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--tan); margin:0 0 .9rem}
+  .guide .note{border-left:3px solid var(--red); padding:.2rem 0 .2rem 1.1rem; margin:1.4rem 0; color:var(--ink)}
+  .guide .bands{display:grid; grid-template-columns:minmax(0,1fr); gap:1.6rem}
+  .guide .band{min-width:0}
+  .guide .band h3{margin-top:0}
+  .guide .band.permitted{border-left:6px solid #cdb89a; padding-left:1rem}
+  .guide .band.conditional{border-left:6px solid #cf9f9f; padding-left:1rem}
+  .guide .band.crossed{border-left:6px solid var(--red); padding-left:1rem}
+  .guide ul.plain{margin:.4rem 0 1rem; padding-left:1.1rem}
+  .guide ul.plain li{margin:.25rem 0}
+  .guide .status{display:inline-block; font-size:.78em; padding:.05rem .5rem; border:1px solid var(--rule); white-space:nowrap}
+  .guide .status.ok{border-color:var(--tan); color:var(--tan)}
+  .guide .status.fix{border-color:var(--red-ink); color:var(--red-ink)}
+  .guide .disclaimer{margin-top:2rem; padding-top:1.4rem; border-top:1px solid var(--rule); font-size:.85em; color:var(--quiet)}
+  .guide .fig-scroll{overflow-x:auto; -webkit-overflow-scrolling:touch}
+  @media (max-width:640px){
+    .guide figure{padding:.9rem} .guide section > h2{gap:.7rem}
+    .guide .fig-scroll svg{min-width:620px}
+    .guide .fig-scroll::before{content:"Swipe sideways to see the whole diagram"; display:block; position:sticky; left:0;
+      font-family:"Poppins",sans-serif; font-size:.72em; color:var(--quiet); margin-bottom:.5rem}
+  }
+  @media print{
+    .site-header,.toc,.toc-m,.progress,.totop,.sizer,.endmatter .share,.site-footer,.skip{display:none !important}
+    body{background:#fff} .reader{display:block} .article,.a-head{max-width:none}
+    .guide section{break-inside:avoid-page} .guide .scroll{overflow:visible}
+  }
+
   @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto} *{transition:none !important}}
   @media (max-width:560px){
-    .bar{justify-content:center} .brand{width:100%; justify-content:center} .nav{width:100%; justify-content:center}
+    .bar{justify-content:center} .brand{width:100%; justify-content:center} .nav{width:100%; justify-content:center; flex-wrap:wrap; gap:.5rem 1rem}
     .foot{justify-content:center; text-align:center}
   }
 </style>
@@ -233,7 +290,8 @@
     <p class="kicker"><a href="{{ '/journal/' | relative_url }}" style="text-decoration:none">&larr; Journal</a> &nbsp;/&nbsp; {{ page.type | default: "Essay" }}{% if page.issue %} &nbsp;/&nbsp; {{ page.issue }}{% endif %}</p>
     <h1 class="a-title">{{ page.title }}</h1>
     {% if page.deck %}<p class="a-deck">{{ page.deck }}</p>{% endif %}
-    {% assign words = content | number_of_words %}
+    {% capture body_text %}{% if page.include %}{% include {{ page.include }} %}{% else %}{{ content }}{% endif %}{% endcapture %}
+    {% assign words = body_text | strip_html | number_of_words %}
     {% assign mins = words | divided_by: 200 | plus: 1 %}
     <div class="a-meta">
       <span class="a-author">{{ page.author | default: "Adalah Council" }}</span>
@@ -249,7 +307,7 @@
     </div>
   </header>
 
-  <div class="reader container">
+  <div class="reader container{% if page.wide %} wide{% endif %}">
     <aside class="toc" aria-label="Table of contents">
       <h2>Contents</h2>
       <ol id="tocList"></ol>
@@ -261,7 +319,7 @@
         <ol id="tocListM"></ol>
       </details>
 
-      {{ content }}
+      {% if page.include %}{% include {{ page.include }} %}{% else %}{{ content }}{% endif %}
 
       <section class="endmatter">
         <div class="share">
@@ -322,12 +380,16 @@
 <script>
   // Build TOC from h2s
   const article = document.getElementById('article');
-  const heads = Array.from(article.querySelectorAll('h2[id]'));
+  const heads = Array.from(article.querySelectorAll('h2[id], section[id] > h2'));
+  heads.forEach(h => { if(!h.id) h.id = h.parentElement.id + '-heading'; });
+  const anchorOf = h => (h.parentElement && h.parentElement.matches('section[id]') && !h.hasAttribute('data-own-id')) ? h.parentElement.id : h.id;
+  const labelOf = h => { const n = h.querySelector('.n'); if(!n) return h.textContent.trim();
+    return n.textContent.trim() + '. ' + h.textContent.replace(n.textContent,'').trim(); };
   const tocList = document.getElementById('tocList');
   const tocListM = document.getElementById('tocListM');
   heads.forEach(h => {
     const make = () => { const li=document.createElement('li'); const a=document.createElement('a');
-      a.href='#'+h.id; a.textContent=h.textContent; li.appendChild(a); return {li,a}; };
+      a.href='#'+anchorOf(h); a.textContent=labelOf(h); li.appendChild(a); return {li,a}; };
     const d=make(); tocList.appendChild(d.li);
     const m=make(); tocListM.appendChild(m.li);
     m.a.addEventListener('click', ()=>{ const dt=document.querySelector('.toc-m'); if(dt) dt.open=false; });
@@ -338,7 +400,7 @@
   const spy = new IntersectionObserver((entries)=>{
     entries.forEach(e=>{
       if(e.isIntersecting){
-        const id=e.target.id;
+        const id=anchorOf(e.target);
         tocLinks.forEach(a=>a.classList.toggle('active', a.getAttribute('href')==='#'+id));
       }
     });
