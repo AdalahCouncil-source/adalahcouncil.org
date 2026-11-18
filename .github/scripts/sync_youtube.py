@@ -14,10 +14,8 @@ list is not added back.
 """
 import json, os, re, sys, time, urllib.request, urllib.error
 import xml.etree.ElementTree as ET
-from datetime import datetime
 
 CHANNEL_ID = "UCur5qJUZYuo9ueA_04MT1SQ"   # youtube.com/@adalahcouncil
-SPEAKER = "Adalah Council"
 VIDEOS_FILE = "_data/videos.yml"
 SHORTS_FILE = "_data/shorts.yml"
 SEEN_FILE = ".github/youtube-seen.txt"
@@ -71,13 +69,6 @@ def parse(xml_text):
                     "views": views})
     return out
 
-def nice_date(iso):
-    try:
-        d = datetime.fromisoformat(iso.replace("Z", "+00:00"))
-        return f"{d:%B} {d.day}, {d.year}"
-    except Exception:
-        return ""
-
 def short_desc(text):
     text = (text or "").strip()
     first = re.split(r"\n\s*\n", text)[0]                    # first paragraph
@@ -112,9 +103,6 @@ def prepend(path, blocks):
 
 def video_block(v):
     return (f"- title: {q(v['title'])}\n"
-            f"  speaker: {q(SPEAKER)}\n"
-            f"  date: {q(nice_date(v['published']))}\n"
-            f"  duration: \"\"\n"
             f"  topic: \"\"\n"
             f"  youtube: {q('https://www.youtube.com/watch?v=' + v['id'])}\n"
             f"  description: {q(short_desc(v['description']))}\n")
