@@ -211,6 +211,7 @@
   .foot-legal{font-size:.9rem; color:var(--ink-2); line-height:1.6; max-width:46ch}
   .foot-copy{font-family:"Poppins",sans-serif; font-size:.85rem; color:var(--ink-2);
     margin-top:1.6rem}
+  .foot-copy a{color:var(--ink-2)} .foot-copy a:hover{color:var(--accent)}
 
   /* ---- one quiet entrance ---- */
   @media (prefers-reduced-motion:no-preference){
@@ -418,7 +419,7 @@
       </p>
       <p class="foot-legal">Adalah Council, Inc. is a 501(c)(3) public charity. Contributions are tax-deductible to the extent permitted by law.</p>
     </div>
-    <p class="foot-copy">© 2025 Adalah Council, Inc.</p>
+    <p class="foot-copy">© {{ site.time | date: "%Y" }} Adalah Council, Inc. · <a href="{{ '/privacy/' | relative_url }}">Privacy</a></p>
   </div>
 </footer>
 

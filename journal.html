@@ -174,6 +174,7 @@ permalink: /journal/
   .foot-nav a{font-family:"Poppins",sans-serif; font-weight:500; font-size:.92rem; color:var(--ink); text-decoration:none}
   .foot-nav a:hover{color:var(--accent)}
   .foot-copy{font-family:"Poppins",sans-serif; font-size:.85rem; color:var(--ink-2)}
+  .foot-copy a{color:var(--ink-2)} .foot-copy a:hover{color:var(--accent)}
 
 
   .bar,.foot{max-width:1160px}
@@ -328,7 +329,7 @@ permalink: /journal/
       <a href="{{ '/journal/' | relative_url }}">Journal</a>
       <a href="https://www.zeffy.com/en-US/donation-form/donate-to-educate-our-community">Donate</a>
     </nav>
-    <p class="foot-copy">© 2025 Adalah Council, Inc.</p>
+    <p class="foot-copy">© {{ site.time | date: "%Y" }} Adalah Council, Inc. · <a href="{{ '/privacy/' | relative_url }}">Privacy</a></p>
   </div>
 </footer>
 
