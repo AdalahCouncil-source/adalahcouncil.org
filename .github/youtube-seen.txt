@@ -1,0 +1,9 @@
+# Video IDs already handled by the YouTube sync. Do not edit unless you want a video re-added.
+-d4BK5gx4Ko
+3MEGN4CD8aM
+3tKS0X7qc0c
+3vt7C4WiNcw
+TKqUrl1aqk8
+hFK1wC5sfG4
+jVWbQpqMwVQ
+mZ2N7c8d04U
