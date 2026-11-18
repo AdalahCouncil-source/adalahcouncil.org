@@ -43,6 +43,9 @@ content:
         label: Feature this as the lead article of its issue
         type: boolean
         default: false
+      - name: image
+        label: Cover picture (optional, shown on the Journal page when this is the featured article; tall pictures work best, 3:4)
+        type: image
       - name: pdf
         label: PDF version (optional)
         type: file
