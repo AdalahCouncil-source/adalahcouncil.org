@@ -44,7 +44,7 @@ content:
         type: boolean
         default: false
       - name: image
-        label: Cover picture (optional, shown on the Journal page when this is the featured article; tall pictures work best, 3:4)
+        label: Cover picture (optional; shown on the Journal page when this is the featured article, and as the preview when the article is shared; tall pictures work best, 3:4; use JPG or PNG)
         type: image
       - name: pdf
         label: PDF version (optional)
@@ -66,6 +66,9 @@ content:
         type: boolean
         hidden: true
       - name: include
+        type: string
+        hidden: true
+      - name: share_image
         type: string
         hidden: true
       - name: body
