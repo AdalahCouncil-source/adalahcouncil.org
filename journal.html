@@ -98,11 +98,21 @@ permalink: /journal/
   .btn-ghost{background:transparent;color:var(--ink);border-color:var(--line-2)}
   .btn-ghost:hover{border-color:var(--ink)}
 
-  .issue-card{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:1.4rem}
+  .issue-card{position:relative;background:var(--white);border:1px solid var(--line);border-radius:12px;padding:1.4rem;
+    transition:border-color .16s}
+  .issue-card:hover,.issue-card:focus-within{border-color:var(--accent)}
+  .issue-card h3 a{color:var(--ink);text-decoration:none}
+  .issue-card h3 a::after{content:"";position:absolute;inset:0;border-radius:12px}
+  .issue-card .go{display:block;margin-top:.7rem;font-family:"Poppins",sans-serif;font-weight:500;font-size:.88rem;color:var(--accent)}
+  .issue-card:hover .go{text-decoration:underline}
+  .issue-card .browse{position:relative;z-index:1}
   .cover{aspect-ratio:3/4;border-radius:8px;background:linear-gradient(160deg,#2c4159,#1b1d23);position:relative;overflow:hidden;
-    display:grid;place-items:center;margin-bottom:1.1rem;color:#e8e6df}
+    margin-bottom:1.1rem;color:#e8e6df}
+  .cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease}
+  .issue-card:hover .cover img{transform:scale(1.03)}
+  .cover::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(23,25,30,.55),rgba(23,25,30,0) 22%,rgba(23,25,30,0) 80%,rgba(23,25,30,.6))}
+  .cover .cv-title,.cover .cv-issue{z-index:1}
   .cover .cv-title{position:absolute;top:16px;left:18px;right:18px;font-family:"Lora",serif;font-weight:600;font-size:1.05rem;line-height:1.25}
-  .cover .cv-mark{width:46px;height:46px;color:rgba(227,226,221,.55)}
   .cover .cv-issue{position:absolute;bottom:14px;left:18px;right:18px;font-family:"Poppins",sans-serif;font-size:.74rem;
     letter-spacing:.1em;text-transform:uppercase}
   .issue-card h3{font-size:1.15rem}
@@ -120,9 +130,12 @@ permalink: /journal/
   .chip:hover{border-color:var(--ink)}
   .chip[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
   .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1rem,2vw,1.4rem);padding-bottom:1rem}
-  .card{background:var(--white);border:1px solid var(--line);border-radius:10px;padding:1.4rem;display:flex;flex-direction:column;
+  .card{position:relative;background:var(--white);border:1px solid var(--line);border-radius:10px;padding:1.4rem;display:flex;flex-direction:column;
     transition:border-color .16s}
-  .card:hover{border-color:var(--accent)}
+  .card:hover,.card:focus-within{border-color:var(--accent)}
+  .card h3 a::after{content:"";position:absolute;inset:0;border-radius:10px}
+  .card:hover h3 a{color:var(--accent)}
+  .card .cfoot a{position:relative;z-index:1}
   .card .ct{font-family:"Poppins",sans-serif;font-size:.68rem;letter-spacing:.05em;text-transform:uppercase;color:var(--accent);margin-bottom:.7rem}
   .card h3{font-size:1.18rem;margin-bottom:.4rem}
   .card h3 a{color:var(--ink);text-decoration:none}
@@ -139,7 +152,11 @@ permalink: /journal/
   .past{padding:1.4rem 0 .4rem}
   .past h3{font-size:1.12rem}
   .past .cap{font-family:"Poppins",sans-serif;font-size:.82rem;color:var(--ink-2);margin:.15rem 0 .5rem}
-  .prow{display:grid;grid-template-columns:150px minmax(0,1fr);gap:1rem;padding:.75rem 0;border-top:1px solid var(--line)}
+  .prow{position:relative;display:grid;grid-template-columns:150px minmax(0,1fr);gap:1rem;padding:.75rem .5rem;margin:0 -.5rem;
+    border-top:1px solid var(--line);border-radius:6px;transition:background-color .16s}
+  .prow:hover,.prow:focus-within{background:rgba(44,65,89,.06)}
+  .prow a::after{content:"";position:absolute;inset:0}
+  .prow:hover a{color:var(--accent)}
   .prow .pt{font-family:"Poppins",sans-serif;font-size:.72rem;letter-spacing:.05em;text-transform:uppercase;color:var(--accent);padding-top:.3rem}
   .prow a{color:var(--ink);text-decoration:none;font-weight:600;font-size:1.05rem}
   .prow a:hover{color:var(--accent)}
@@ -166,7 +183,6 @@ permalink: /journal/
     .issue-card{display:grid;grid-template-columns:110px minmax(0,1fr);gap:1.1rem;align-items:center}
     .cover{margin-bottom:0}
     .cover .cv-title{display:none}
-    .cover .cv-mark{width:30px;height:30px}
     .cover .cv-issue{font-size:.56rem;left:8px;right:8px;bottom:8px}
     .grid{grid-template-columns:1fr 1fr}
   }
@@ -225,14 +241,16 @@ permalink: /journal/
       </div>
     </div>
     <aside class="issue-card" aria-label="Current issue">
+      {% assign cover = lead.image | default: "/assets/journal/cover-default.svg" %}
       <div class="cover">
+        <img src="{% if cover contains '://' %}{{ cover }}{% else %}{{ cover | relative_url }}{% endif %}" alt="">
         <span class="cv-title">{{ jtitle }}</span>
-        <svg class="cv-mark" viewBox="0 0 100 100" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><line x1="25" y1="32" x2="75" y2="32"/><line x1="50" y1="32" x2="50" y2="79"/><path d="M50 79 L40 90 M50 79 L60 90 M36 90 L64 90"/><path d="M25 32 L16 49 M25 32 L34 49 M16 49 L20 56 L30 56 L34 49"/><path d="M75 32 L66 49 M75 32 L84 49 M66 49 L70 56 L80 56 L84 49"/><circle cx="50" cy="28" r="3.4" fill="currentColor" stroke="none"/></svg>
         <span class="cv-issue">{% if cur != "" %}{{ cur }}{% else %}{{ season }} {{ newest.date | date: "%Y" }}{% endif %}</span>
       </div>
       <div>
-        <h3>{% if cur != "" %}Current issue{% else %}Latest writing{% endif %}</h3>
+        <h3><a href="{{ lead.url | relative_url }}">{% if cur != "" %}Current issue{% else %}Latest writing{% endif %}</a></h3>
         <p class="cap">{% if cur != "" %}{{ cur }}, {% endif %}{{ season }} {{ newest.date | date: "%Y" }}</p>
+        <span class="go">Read: {{ lead.title }} &rarr;</span>
         {% if groups.size > 1 %}<a class="browse" href="#archive">Browse all issues</a>{% endif %}
       </div>
     </aside>
