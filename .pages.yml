@@ -31,7 +31,7 @@ content:
         label: Type
         type: select
         options:
-          values: [Essay, Research, Statement, Announcement]
+          values: [Essay, Research, Guidance, Statement, Announcement]
       - name: author
         label: Author
         type: string
@@ -58,6 +58,12 @@ content:
       - name: layout
         type: string
         default: article
+        hidden: true
+      - name: wide
+        type: boolean
+        hidden: true
+      - name: include
+        type: string
         hidden: true
       - name: body
         label: Article text
