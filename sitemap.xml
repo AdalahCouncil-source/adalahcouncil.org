@@ -6,5 +6,6 @@ layout: null
   <url><loc>{{ '/' | absolute_url }}</loc></url>
   <url><loc>{{ '/videos/' | absolute_url }}</loc></url>
   <url><loc>{{ '/journal/' | absolute_url }}</loc></url>
+  <url><loc>{{ '/privacy/' | absolute_url }}</loc></url>
 {% for a in site.articles %}  <url><loc>{{ a.url | absolute_url }}</loc><lastmod>{{ a.date | date_to_xmlschema }}</lastmod></url>
 {% endfor %}</urlset>
