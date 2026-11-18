@@ -7,6 +7,7 @@ permalink: /videos/
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+{% include analytics.html %}
 <title>Lectures &amp; Talks — Adalah Council</title>
 <meta name="description" content="Recorded lectures, seminars, and talks from Adalah Council — serious Islamic scholarship on contemporary ethical, legal, and social questions.">
 <link rel="canonical" href="{{ '/videos/' | absolute_url }}">
@@ -162,7 +163,7 @@ permalink: /videos/
 
   /* shorts */
   .shorts{padding-bottom:clamp(3.5rem,7vw,5.5rem)}
-  .shorts[hidden], .v-topic[hidden]{display:none}
+  .shorts[hidden], .v-topic[hidden], .v-sub[hidden], .v-sub .sep[hidden]{display:none}
   .sec-top{border-top:1px solid var(--line); padding-top:clamp(2.2rem,4vw,3.2rem); margin-bottom:1.6rem}
   .sec-top h2{font-size:clamp(1.5rem,1rem + 1.6vw,2rem)}
   .sec-top p{color:var(--ink-2); margin:.5rem 0 0; max-width:56ch}
@@ -402,8 +403,9 @@ var VIDEOS = {{ site.data.videos | jsonify }};
   function renderFeatured(){
     var v = VIDEOS[current];
     els.topic.textContent = v.topic || ''; els.topic.hidden = !v.topic;
-    els.title.textContent = v.title; els.by.textContent = v.speaker || '';
+    els.title.textContent = v.title; els.by.textContent = v.speaker || 'Adalah Council';
     els.date.textContent = v.date ? 'Recorded ' + v.date : ''; els.dur.textContent = v.duration || '';
+    var sub = els.date.parentNode; sub.hidden = !v.date && !v.duration; sub.querySelector('.sep').hidden = !(v.date && v.duration);
     els.desc.textContent = v.description || '';
   }
 
@@ -438,7 +440,7 @@ var VIDEOS = {{ site.data.videos | jsonify }};
         '<span class="pin">' + PLAY_ICON + '</span>' +
         (v.duration ? '<span class="pl-dur">' + esc(v.duration) + '</span>' : '') + '</span>' +
         '<span class="pl-body"><span class="pl-title">' + esc(v.title) + '</span>' +
-        '<span class="pl-speaker">' + esc(v.speaker || '') + '</span></span>';
+        '<span class="pl-speaker">' + esc(v.speaker || 'Adalah Council') + '</span></span>';
       var im = b.querySelector('img'); if(im) loadThumb(im, v.youtubeId, ['mqdefault']);
       b.addEventListener('click', function(){
         current = i; renderPlaylist(); renderFeatured(); renderPlayer(true);   // one click: select and play
