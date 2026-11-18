@@ -82,9 +82,11 @@ permalink: /privacy/
   .foot-copy a{color:var(--ink-2)}
   .foot-copy a:hover{color:var(--accent)}
   @media (max-width:640px){
-    .bar{justify-content:center} .brand{width:100%; justify-content:center} .nav{width:100%; justify-content:center; flex-wrap:wrap; gap:.5rem 1rem}
+    .bar{justify-content:center} .brand{width:100%; justify-content:center} .nav{width:100%; justify-content:center}
     .foot{justify-content:center; text-align:center}
   }
+  @media (max-width:420px){ .nav{gap:.7rem} .nav .btn-sm{padding:.55em .85em} }
+  @media (max-width:370px){ .nav{flex-wrap:wrap; gap:.5rem 1rem} }
 </style>
 </head>
 <body>
