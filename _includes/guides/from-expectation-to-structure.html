@@ -1,0 +1,508 @@
+<style>
+  .guide.ets{--bg:#f2f1ec}
+  .guide .adapted{font-style:italic;color:var(--quiet);margin:0 0 .4rem}
+  .guide .split,.guide .voice{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:1.4rem}
+  .guide .split>div,.guide .voice>div{min-width:0}
+  .guide .split h4,.guide .callout h4{font-family:"Poppins",sans-serif;font-weight:600;font-size:.7em;line-height:1.3;letter-spacing:.12em;text-transform:uppercase;color:var(--tan);margin:0 0 .5rem}
+  .guide .chips{display:flex;flex-wrap:wrap;gap:.45rem;margin:.6rem 0 1rem}
+  .guide .chips span{font-family:"Poppins",sans-serif;font-size:.78em;padding:.2rem .65rem;border:1px solid var(--rule);background:var(--bg);border-radius:3px}
+  .guide .fn{display:grid;gap:.6rem}
+  .guide .fn div{padding:.7rem .9rem;border-left:6px solid var(--beige);background:var(--bg)}
+  .guide .fn div.p{border-left-color:var(--red)} .guide .fn div.c{border-left-color:var(--rose)}
+  .guide .fn b{display:block;font-family:"Lora",serif;font-size:1.08em;font-weight:600}
+  .guide .fn small{color:var(--quiet);font-size:.85em}
+  .guide .dots{letter-spacing:.15em;color:var(--red-ink);white-space:nowrap}
+  .guide .dots i{font-style:normal;color:var(--rule)}
+  .guide .callout{background:var(--beige);padding:1rem 1.2rem;margin:1.4rem 0;border-radius:4px}
+  .guide .callout p{margin:0}
+  .guide .pull{font-family:"Lora",serif;font-size:1.3em;line-height:1.35;color:var(--red-ink);margin:1.6rem 0;font-style:italic}
+  .guide .voice{margin:1rem 0 1.4rem}
+  .guide .voice div{padding:1rem 1.1rem;border:1px solid var(--rule);border-radius:4px}
+  .guide .voice div.good{border-color:var(--tan)}
+  .guide .voice h4{font-size:1em;margin:0 0 .3rem}
+  .guide .voice ul{margin:.3rem 0 0;padding-left:1.1rem}
+  .guide .voice li{margin:.3rem 0;font-style:italic}
+  .guide ul.check{list-style:none;padding:0;margin:.6rem 0 1.4rem}
+  .guide ul.check li{padding:.5rem 0 .5rem 1.9rem;border-top:1px solid var(--rule);position:relative}
+  .guide ul.check li::before{content:"";position:absolute;left:.2rem;top:.9rem;width:.85rem;height:.85rem;border:1.5px solid var(--tan);border-radius:2px}
+  .guide .jd{border:1px solid var(--rule);padding:1.2rem;margin:1.2rem 0 1.6rem;background:var(--paper);border-radius:6px}
+  .guide .jd h3{margin-top:0}
+  .guide .meta{font-size:.9em;color:var(--quiet)}
+  .guide figure svg.narrow{max-width:30rem;margin-inline:auto}
+  @media (max-width:640px){ .guide .split,.guide .voice{grid-template-columns:minmax(0,1fr)} }
+</style>
+<div class="guide ets">
+<p class="adapted measure">Adapted from Farhan Siddiqi’s handbook <em>From Expectation to Structure: Reframing the Modern Imamate</em>.</p>
+<section id="start">
+  <h2><span class="n">1</span>Where to start</h2>
+  <p class="point measure">Communities ask whether they have found the right imam. The prior question is whether they have built a structure in which the right imam could succeed. Sincerity, talent, and piety do not make up for its absence.</p>
+  <p class="measure">This guide is for seminary graduates, serving imams, boards, and hiring committees. It reflects U.S. immigrant communities in a broadly Sunni setting. Readers elsewhere should adapt it rather than transplant it. It is most useful when a board and an imam read the same sections together. It does harm when one side hands it to the other as an accusation.</p>
+  <div class="scroll"><table>
+    <thead><tr><th>If you are</th><th>Read first</th><th>Then</th></tr></thead>
+    <tbody>
+      <tr><th>A seminary graduate</th><td>Sections 2–4, 12</td><td>Sections 5–7 before you accept a role; the imam checklist</td></tr>
+      <tr><th>A serving imam</th><td>Sections 5–7, 12–13</td><td>Sections 9–10 when it is time to renegotiate scope</td></tr>
+      <tr><th>A board member</th><td>Sections 3–4, 8–11</td><td>Section 14; the board and contract checklists</td></tr>
+      <tr><th>A hiring committee</th><td>Sections 3–4</td><td>The contract checklist and sample job descriptions before you post or interview</td></tr>
+    </tbody>
+  </table></div>
+  <p class="pull measure">The goal is not perfection, but sustainability. Not idealism, but clarity. Not control, but trust.</p>
+</section>
+
+<section id="role">
+  <h2><span class="n">2</span>What “imam” means</h2>
+  <p class="measure">An imam is one who is followed. Classical usage spread the word across three registers: political leadership, scholarly authority, and leading the prayer. Modern expectation collapses all three, and more, into one salaried person.</p>
+
+  <figure aria-labelledby="collapse-cap">
+    <p class="fig-label">Figure 1</p>
+    <div class="split">
+      <div>
+        <h4>Expected of one person</h4>
+        <div class="chips"><span>Prayer leader</span><span>Khaṭīb</span><span>Marriage counselor</span><span>Youth mentor</span><span>Legal guide</span><span>Therapist</span><span>Educator</span><span>Community representative</span><span>Social worker</span><span>Institutional leader</span></div>
+      </div>
+      <div>
+        <h4>Ordered by function</h4>
+        <div class="fn">
+          <div class="p"><b>Social and pastoral</b><small>counseling, family, youth, guidance, referral</small></div>
+          <div class="c"><b>Civil and civic</b><small>interfaith, officials, public safety, representation</small></div>
+          <div><b>Ritual</b><small>prayer, khuṭbah, reminders, rites, teaching</small></div>
+        </div>
+      </div>
+    </div>
+    <figcaption id="collapse-cap">Role collapse. Classical Islamic societies spread these duties across separate appointments; assigning them all to one person is recent, not inherited.</figcaption>
+  </figure>
+
+  <p class="measure">This guide uses the word functionally: a religious professional serving a community institution, whose work falls into three domains. They are separated not because they are unrelated but because expectations cannot be aligned until they are distinguished.</p>
+  <p class="measure">The guide uses “he” for the congregational imam because the office is overwhelmingly held by men. Counselor, chaplain, youth director, religious director, and educator are not gender-restricted roles, and the ethics here are not gendered.</p>
+</section>
+
+<section id="capacity">
+  <h2><span class="n">3</span>The capacity principle</h2>
+  <p class="point measure">The imamate is a sacred trust (amānah) carried by a person of finite capacity, training, and specialization. Admitting those limits is not a failure of faith. It is honesty and justice.</p>
+  <p class="measure">Prayer and teaching, counseling, crisis response, administration, and public engagement each need different training and temperament. Skill in one does not imply competence in another, and neither boards nor imams should assume it does.</p>
+
+  <h3>When a service cannot be provided</h3>
+  <p class="measure">If training, licensure, experience, or capacity rules a service out, say so in advance and in writing. Then do one of four things:</p>
+  <ol class="steps">
+    <li><div><b>Reassign it</b> to another staff member or department.</div></li>
+    <li><div><b>Refer it</b> to an outside professional.</div></li>
+    <li><div><b>Train for it,</b> with defined expectations and a timeline.</div></li>
+    <li><div><b>Remove it</b> from the imam’s scope formally.</div></li>
+  </ol>
+  <div class="note measure">What must not happen: unmet expectations quietly becoming normal, informal pressure to “fill gaps,” and the assumption that willingness equals qualification.</div>
+
+  <h3>Capacity and pay move together</h3>
+  <p class="measure">Justice (ʿadl) keeps workload, accountability, and compensation aligned. Pay for the duties actually carried, not assumed or historical ones. When duties are added, pay, workload, or scope must move with them.</p>
+
+  <div class="callout measure"><h4>In a one-employee masjid</h4><p>The principle is not “hire more people.” Name which functions are realistically in scope, which are shared with volunteers, and which are referred out or paused, and write it down.</p></div>
+  <p class="pull measure">The health of a community is measured not by how much its imam can endure, but by how wisely responsibility is distributed.</p>
+</section>
+
+<section id="functions">
+  <h2><span class="n">4</span>Three functions, rightly ordered</h2>
+  <p class="measure">Communities judge the three functions on one axis, visibility, and reward whoever is seen most often at the front. The functions actually differ on three axes.</p>
+
+  <figure aria-labelledby="axes-cap">
+    <p class="fig-label">Figure 2</p>
+    <div class="scroll" style="margin:0"><table>
+      <thead><tr><th>Function</th><th>Needs this specific person?</th><th>Damage if mishandled</th><th>Visibility</th></tr></thead>
+      <tbody>
+        <tr><th>Ritual</th><td><span class="dots">●<i>●●</i></span><br>Low. The prayer is valid whoever leads; many can give reminders.</td><td><span class="dots">●●●</span><br>Real. Doctrinal drift or careless teaching from the minbar does lasting harm.</td><td><span class="dots">●●●</span><br>Highest by far.</td></tr>
+        <tr><th>Civil and civic</th><td><span class="dots">●●<i>●</i></span><br>Middle. Years to build, but can be held by the institution.</td><td><span class="dots">●●●</span><br>High. A failed relationship can leave a community exposed.</td><td><span class="dots">●<i>●●</i></span><br>Often neglected.</td></tr>
+        <tr><th>Social and pastoral</th><td><span class="dots">●●●</span><br>High. Trust is personal and does not transfer.</td><td><span class="dots">●●●</span><br>High. Mishandling can break a family’s trust for good.</td><td><span class="dots">●<i>●●</i></span><br>Low.</td></tr>
+      </tbody>
+    </table></div>
+    <figcaption id="axes-cap">High stakes are not confined to any one function. What separates them is the first column.</figcaption>
+  </figure>
+
+  <h3>The claim, stated precisely</h3>
+  <p class="measure">A single imam should spend the least of his own non-delegable time on ritual, more on civic relationships, and the most on pastoral work. The reason is continuity-dependence, not stakes.</p>
+
+  <figure aria-labelledby="time-cap">
+    <p class="fig-label">Figure 3</p>
+    <svg class="narrow" viewBox="0 0 400 260" role="img" aria-label="Relative share of the imam’s own time: ritual least, civic more, pastoral most">
+      <g font-family="Lora, Georgia, serif" fill="var(--ink)">
+        <text x="0" y="22" font-size="18">Ritual</text>
+        <text x="400" y="22" font-size="15" fill="var(--quiet)" text-anchor="end">least · build redundancy</text>
+        <rect x="0" y="32" width="110" height="30" fill="var(--beige)" stroke="var(--ink)" stroke-width="1"/>
+        <text x="0" y="108" font-size="18">Civil and civic</text>
+        <text x="400" y="108" font-size="15" fill="var(--quiet)" text-anchor="end">more · hold institutionally</text>
+        <rect x="0" y="118" width="240" height="30" fill="var(--rose)" stroke="var(--ink)" stroke-width="1"/>
+        <text x="0" y="194" font-size="18">Social and pastoral</text>
+        <text x="400" y="194" font-size="15" fill="var(--quiet)" text-anchor="end">most · protect with presence</text>
+        <rect x="0" y="204" width="400" height="30" fill="var(--red)"/>
+      </g>
+    </svg>
+    <figcaption id="time-cap">Relative shares only; the handbook sets no percentages. The bars describe one person’s irreplaceable hours, not the rank of acts of worship.</figcaption>
+  </figure>
+
+  <div class="note measure"><b>Two misreadings to rule out.</b> First, this does not say ritual matters least in the religion; the word “imam” is most tightly bound to it. Second, “delegable” does not mean “unimportant.” A function can be highly delegable and still non-negotiable. The point is to make ritual robust rather than dependent on one man.</div>
+  <p class="pull measure">Prioritization does not devalue ritual leadership. It tells you what to build redundancy for, and what to protect with presence.</p>
+</section>
+<section id="pastoral">
+  <h2><span class="n">5</span>The social and pastoral function</h2>
+  <p class="point measure">Most people do not come to an imam when life is going well. They come when a marriage is breaking, faith is shaken, or a crisis feels unbearable. The imam is a spiritual advisor in those moments: a guide, not the center of anyone’s life and not a substitute for their agency or for professional care.</p>
+
+  <div class="bands">
+    <div class="band permitted measure">
+      <h3>Within scope</h3>
+      <ul class="plain">
+        <li>Listening before guiding; moral and spiritual framing; clarifying sharʿī boundaries.</li>
+        <li>Marriage counseling that hears all sides, resists one-sided framing, and recognizes when reconciliation is no longer realistic.</li>
+        <li>Helping couples separate ethically and with dignity when it fails.</li>
+        <li>Patient, relational work with youth, often alongside a youth director.</li>
+      </ul>
+    </div>
+    <div class="band conditional measure">
+      <h3>Recognize and refer</h3>
+      <p>The imam is a first responder, not a clinician. He should recognize the signs of:</p>
+      <ul class="plain">
+        <li>Depression and anxiety</li>
+        <li>Substance abuse</li>
+        <li>Psychosis</li>
+        <li>Trauma responses</li>
+        <li>Eating disorders</li>
+      </ul>
+      <p>He should then refer to a vetted network: Muslim therapists and counselors, medical and legal professionals, social services. He stays spiritually present alongside care. Referral is not abandonment.</p>
+    </div>
+    <div class="band crossed measure">
+      <h3>Outside scope</h3>
+      <ul class="plain">
+        <li>Diagnosing mental illness.</li>
+        <li>Prescribing or discouraging medication.</li>
+        <li>Treating trauma, addiction, or severe mental-health conditions.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Authority, boundaries, and safeguarding</h3>
+  <p class="measure">Pastoral authority creates an asymmetry, and asymmetry calls for restraint. Extended one-on-one counseling can breed dependency and savior dynamics, most sharply across genders but not only there. Communities should build out women counselors, educators, and mentors so long-term support is routed appropriately.</p>
+  <p class="measure">The risk also runs the other way. Religious authority isolates, and a pastoral relationship is a tempting place to meet one’s own needs. Emotional entanglement is already a boundary failure, well before anything physical. The safeguards are structural rather than a matter of willpower:</p>
+  <ul class="plain measure">
+    <li>Time-limited counseling.</li>
+    <li>Shared rather than sole long-term support.</li>
+    <li>Referral.</li>
+    <li>The imam’s own peers and outlets, so the pastoral encounter is never where he goes to be understood.</li>
+  </ul>
+  <div class="note measure"><b>Two duties, not to be confused.</b> An institution cannot guarantee the safety of every adult, and adults remain responsible for their choices. Toward children and vulnerable adults, though, the duty is active safeguarding. That means a written policy, trauma-informed and survivor-centered response, and reporting where the law requires it. The first principle never licenses passivity where the second applies.</div>
+
+  <h3>The toll</h3>
+  <p class="measure">Abuse, suicidal ideation, grief, and family breakdown accumulate as secondary trauma. Peer support with other clergy, therapy when needed, and time away from the masjid are not optional. The pastoral function asks for clarity more than charisma and humility more than heroics.</p>
+</section>
+
+<section id="civic">
+  <h2><span class="n">6</span>The civil and civic function</h2>
+  <p class="point measure">Civic work is preventive. Communities without relationships to their city, schools, and agencies engage only after harm has occurred, when leverage is lowest and trust most fragile.</p>
+  <div class="scroll"><table>
+    <thead><tr><th>Arena</th><th>Purpose</th><th>Limit</th></tr></thead>
+    <tbody>
+      <tr><th>Interfaith</th><td>Civic alliances for when the community is targeted or its rights are challenged. Collegial friendship with other clergy. Learning from churches’ and synagogues’ counseling, hospice, pantry, and endowment models.</td><td>Participation is not theological endorsement; ritual stays distinct. State boundaries early, calmly, and confidently.</td></tr>
+      <tr><th>Public outreach</th><td>Representing Islam at events, colleges, and forums.</td><td>Not every imam’s strength, and that is acceptable. Visibility without preparation can do more harm than good.</td></tr>
+      <tr><th>Local government</th><td>Mayors, councils, zoning and school boards. Familiarity creates access and allows advocacy before a crisis.</td><td>Familiarity, not confrontation.</td></tr>
+      <tr><th>Law enforcement</th><td>Security assessments, training, and liaison services the community is entitled to.</td><td>See the caution below.</td></tr>
+      <tr><th>Chaplaincy and schools</th><td>Accommodations and care in prisons, hospitals, and universities. Prayer space and excused absences in public schools.</td><td>Pursue what fits the imam’s capacity and the institution’s vision.</td></tr>
+    </tbody>
+  </table></div>
+  <div class="note measure"><b>On law enforcement.</b> For many Muslims, especially after 9/11 and especially in Black Muslim communities, engagement is not neutral, and principled non-engagement can be a legitimate stance. Keep these four distinct: emergency preparedness, facility security, civil-rights advocacy, and intelligence-gathering. The imam must not become an informal arm of state power, and the masjid must not expose vulnerable congregants, including those with precarious immigration status. Pair any public-safety relationship with civil-rights attorneys and community-led safety capacity, such as trained marshals and de-escalation.</div>
+</section>
+
+<section id="ritual">
+  <h2><span class="n">7</span>The ritual function</h2>
+  <p class="point measure">Ritual is the most visible function and the one a single imam should hold least tightly with his own hands. The governing principle is continuity through empowerment.</p>
+  <ul class="plain measure">
+    <li><b>The ḥāfiẓ question.</b> Ḥifẓ is virtuous but not a prerequisite for leading prayer. What is required is accurate, confident recitation. Treating ḥifẓ as the test narrows the pool for no sound reason.</li>
+    <li><b>The khuṭbah.</b> It carries weight, but its validity does not hinge on eloquence, and it can be shared.</li>
+    <li><b>Reminders (khaṭirah).</b> Many capable members can give them. Rotating them develops the community.</li>
+    <li><b>Teaching.</b> It rewards intentional method far more than improvisation.</li>
+  </ul>
+  <div class="callout measure"><h4>In a one-employee masjid</h4><p>Redundancy rarely means a paid qārī. It means two or three trained volunteers who can lead the daily prayers and a rotation for the khaṭirah, so the imam’s absence never closes the prayer or the program.</p></div>
+  <p class="pull measure">A community that can sustain its ritual life without its imam present has not devalued worship. It has made worship resilient.</p>
+</section>
+
+<section id="staffing">
+  <h2><span class="n">8</span>Staffing the masjid</h2>
+  <p class="measure">Routing every religious need to one person overwhelms the imam, stunts internal talent, and confuses accountability. Most communities already rely on several of these roles informally. Name them and staff them on purpose.</p>
+  <div class="scroll"><table>
+    <thead><tr><th>Role</th><th>Carries</th><th>Note</th></tr></thead>
+    <tbody>
+      <tr><th>Resident scholar</th><td>Advanced teaching, writing, complex questions, long-term religious direction</td><td>Not expected to lead every prayer or give every khuṭbah</td></tr>
+      <tr><th>Youth director</th><td>Programming, mentorship, coordination with parents and educators</td><td>A specialized field, not a side assignment</td></tr>
+      <tr><th>Religious director</th><td>Programs, calendars, curricula, speakers</td><td>Organizational skill over public charisma</td></tr>
+      <tr><th>Qārī / prayer leader</th><td>Daily prayers, Qurʾān teaching, ritual continuity</td><td>Separating prayer from pastoral leadership aids sustainability</td></tr>
+      <tr><th>Pastoral counselor</th><td>Faith support, crisis response, grief and end-of-life care, intake and referral</td><td>Men or women; counseling, social work, or chaplaincy training preferred</td></tr>
+      <tr><th>Chaplain</th><td>Religious care in prisons, hospitals, universities</td><td>A viable career beyond the masjid</td></tr>
+    </tbody>
+  </table></div>
+  <p class="measure">Where full-time staff is out of reach, use part-time or shared positions, rotating duties, regional collaboration between masājid, and phased growth. The question is not whether a masjid can afford structure. It is whether it can afford to go without it.</p>
+  <div class="callout measure"><h4>In a one-employee masjid</h4><p>Distribute functions across volunteers and a lay committee: a youth volunteer, a prayer rotation, a counseling-referral contact. Write down who handles what.</p></div>
+  <p class="pull measure">Structure is mercy.</p>
+</section>
+
+<section id="contracts">
+  <h2><span class="n">9</span>Contracts, compensation, and boundaries</h2>
+  <p class="point measure">A clear contract is not a sign of mistrust. Without one, boundaries become negotiable, roles expand unchecked, and conflict turns personal rather than procedural. Good intentions do not replace documentation.</p>
+  <p class="measure">Roles and responsibilities is the most important section of the contract and usually the weakest. It should state what the imam holds, what is shared, and what is out of scope, mapped to the three functions. If it is not written, it should not be assumed. The full list of elements is in the contract checklist (Section 15).</p>
+
+  <h3>Negotiation is not a lack of tawakkul</h3>
+  <p class="measure">Before accepting, an imam should understand the masjid’s budget, revenue, staffing, and who decides what. These questions are due diligence, not accusations. An imam asked to counsel, teach, administer, and represent should not be paid as if he only leads prayer. A declined offer is not a failure; a badly negotiated one often is.</p>
+
+  <h3>“Fī sabīl Allāh” does not mean free</h3>
+  <p class="measure">Intention (niyyah) is an inner act of worship. Compensation is an outer transaction. They are not opposites, and fair pay compromises no one’s sincerity. The sources settle the permissibility of paid religious service:</p>
+  <ul class="plain measure">
+    <li>The Qurʾān gives those employed to administer the ṣadaqāt a share (al-Tawbah 9:60).</li>
+    <li>The Prophet ﷺ approved the Companions’ payment for ruqyah with al-Fātiḥah, saying the Book of Allāh is the most deserving thing to take a wage for.</li>
+    <li>He told ʿUmar to accept what came to him without craving or asking.</li>
+  </ul>
+  <p class="measure">Even an imam who personally works for free can distort expectations, set unsustainable benchmarks, and undercut peers who depend on the same work. Spiritual language must never excuse structural neglect.</p>
+
+  <h3>Contracts must assume change</h3>
+  <p class="measure">Specify a review cycle (six months, twelve months, then annually), criteria for reassessing scope, room for the role to grow or shrink, pay tied to responsibility, and a mutual modification process. A contract that allows unilateral change is not clarity but vulnerability.</p>
+  <div class="callout measure"><h4>In a one-employee masjid</h4><p>A written scope matters more when there is only one person. Even a part-time or bivocational imam needs his hours, exclusions, and referral pathways on paper.</p></div>
+</section>
+
+<section id="calibration">
+  <h2><span class="n">10</span>Baselines and scaling</h2>
+  <p class="point measure">Immaturity is not a moral failure; inertia is. Combining roles is reasonable in a young institution. The problem comes when a temporary arrangement hardens into a permanent expectation. Growth without structural change is exploitation by inertia.</p>
+
+  <figure aria-labelledby="base-cap">
+    <p class="fig-label">Figure 4</p>
+    <svg class="narrow" viewBox="0 0 400 330" role="img" aria-label="Baseline timeline: imam observes for three to six months, institution tracks for six to twelve months, review at month six, job description redrafted at month twelve">
+      <g font-family="Lora, Georgia, serif" fill="var(--ink)">
+        <rect x="10" y="10" width="190" height="62" fill="var(--rose)" stroke="var(--ink)" stroke-width="1"/>
+        <text x="20" y="34" font-size="17">Imam’s baseline</text>
+        <text x="20" y="56" font-size="14" fill="var(--quiet)">listen; keep legacy</text>
+        <rect x="10" y="88" width="380" height="62" fill="var(--beige)" stroke="var(--ink)" stroke-width="1"/>
+        <text x="20" y="112" font-size="17">Institutional baseline</text>
+        <text x="20" y="134" font-size="14" fill="var(--quiet)">track counseling, teaching, admin, crises</text>
+        <line x1="10" y1="250" x2="390" y2="250" stroke="var(--faint)" stroke-width="1.2"/>
+        <g font-size="15" fill="var(--quiet)" text-anchor="middle">
+          <text x="10" y="276">0</text><text x="105" y="276">3</text><text x="200" y="276">6</text><text x="295" y="276">9</text><text x="390" y="276" text-anchor="end">12</text>
+          <text x="200" y="306">months</text>
+        </g>
+        <line x1="200" y1="166" x2="200" y2="250" stroke="var(--tan)" stroke-width="2"/>
+        <circle cx="200" cy="250" r="6" fill="var(--tan)"/>
+        <text x="208" y="190" font-size="15">Review</text>
+        <line x1="390" y1="166" x2="390" y2="250" stroke="var(--red)" stroke-width="2"/>
+        <circle cx="390" cy="250" r="7" fill="var(--red)"/>
+        <text x="382" y="190" font-size="15" text-anchor="end">Job description</text>
+        <text x="382" y="210" font-size="15" text-anchor="end">redrafted</text>
+      </g>
+    </svg>
+    <figcaption id="base-cap">Imam’s baseline: three to six months. Institutional baseline: six months to a year. The twelve-month redraft belongs in the contract, so renegotiation is a scheduled milestone rather than an awkward salary dispute. Annual review follows.</figcaption>
+  </figure>
+
+  <p class="measure">Every community has an internal logic of history, personalities, and informal power that no job description shows. An imam who cuts legacy programs on arrival signals disrespect. Reform lasts when people experience it as evolution rather than replacement. A strong beginning is usually a quiet one.</p>
+  <div class="split measure">
+    <div><h4>Scaling in</h4><p>Narrow the imam’s scope when demand exceeds capacity. Formalize referral, delegate what was informal, and end programs that no longer fit. This is recalibration, not retreat.</p></div>
+    <div><h4>Scaling out</h4><p>Add staff or volunteers, introduce specialized roles, expand programs. Do this only after boundaries are set, since expansion without them accelerates burnout.</p></div>
+  </div>
+  <p class="measure">Boundaries are diagnostic. When an imam keeps defined hours and refers out, the institution is forced to see its real staffing gaps. That discomfort is diagnosis, not dysfunction. Smaller masājid shorten the curve by consulting established centers.</p>
+</section>
+
+<section id="accountability">
+  <h2><span class="n">11</span>Accountability and succession</h2>
+  <p class="point measure">What is funded by trust should be accountable to it. Departments should track as they go, so reporting is compilation rather than reconstruction.</p>
+  <div class="scroll"><table>
+    <thead><tr><th>Track</th><th>What</th></tr></thead>
+    <tbody>
+      <tr><th>Programs</th><td>Attendance and trends, frequency, intended objectives against observed outcomes</td></tr>
+      <tr><th>Feedback</th><td>Post-program surveys, periodic community input, anonymous channels where appropriate, collected to improve rather than to validate</td></tr>
+      <tr><th>Services</th><td>Requests, response time, and type of service, without sensitive personal detail unless operationally necessary</td></tr>
+      <tr><th>Resources</th><td>Budgeted against actual cost, program spending, volunteer hours, in-kind contributions</td></tr>
+      <tr><th>Media</th><td>Photos and recordings with attendees informed, used for accountability and review, with care for dignity</td></tr>
+    </tbody>
+  </table></div>
+  <p class="measure">Frame goals as SMART (specific, measurable, achievable, relevant, time-bound) and compile them into an annual report.</p>
+  <h3>Succession</h3>
+  <p class="measure">Succession planning is not preparing to remove an imam. It is making sure services continue, memory is kept, and transitions do not destabilize the community. It is only possible when authority is distributed and processes are documented. An imam who knows the institution will outlast him is freer to lead well while he is there.</p>
+  <div class="callout measure"><h4>In a one-employee masjid</h4><p>Succession is an emergency-cover plan: who leads the prayers and a janāzah if the imam is traveling or ill, where documents, contacts, and accounts live, and one or two members ready to step in.</p></div>
+</section>
+<section id="person">
+  <h2><span class="n">12</span>The imam himself</h2>
+  <p class="point measure">Structure protects leadership; it does not produce it. Classical training is a necessary foundation, but it does not by itself prepare anyone for the functional realities of modern community leadership.</p>
+
+  <h3>Skills to add deliberately</h3>
+  <div class="scroll"><table>
+    <thead><tr><th>Area</th><th>Minimum</th></tr></thead>
+    <tbody>
+      <tr><th>Knowledge plus network</th><td>Confidence on recurring foundations: doubt, the limits of belief and disbelief, Qurʾānic preservation, ḥadīth criticism, the Companions, major legal differences. He should be able to explain why a position is held, not just what it is. Beyond that, he acts as a gateway, not a bottleneck. “I don’t know; let me consult” is professional maturity.</td></tr>
+      <tr><th>Mental health</th><td>Mental Health First Aid (adult and youth): recognition, response, referral</td></tr>
+      <tr><th>Abuse</th><td>Trauma-informed and survivor-centered response; mandated-reporter awareness</td></tr>
+      <tr><th>End of life</th><td>Hospice and pastoral-presence training</td></tr>
+      <tr><th>Teaching</th><td>Short workshops on method, curriculum, and learning styles</td></tr>
+      <tr><th>Civic literacy</th><td>Citizens’ academies, public-safety briefings, interfaith committees, civic boards</td></tr>
+      <tr><th>Delegation</th><td>Training prayer leaders, speakers, teachers, and counselors on purpose</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>Paths after seminary</h3>
+  <div class="scroll"><table>
+    <thead><tr><th>Path</th><th>Gives</th><th>Costs</th></tr></thead>
+    <tbody>
+      <tr><th>Daʿwah and community work</th><td>Demand, respect, often stable employment</td><td>Limited mobility, role ambiguity, isolation, pressure on boundaries. Digital daʿwah and traveling speaking add reach but unstable income and ego risk.</td></tr>
+      <tr><th>Social services and counseling</th><td>Stability, clear boundaries, scalable impact (MSW; licensed clinical work)</td><td>Further education and emotional toll</td></tr>
+      <tr><th>Academia</th><td>Depth, structured progression, credibility; Arabic instruction is more open</td><td>Competition, long training, specialization</td></tr>
+    </tbody>
+  </table></div>
+  <p class="measure">Common pitfalls: entitlement after years of sacrifice, unaddressed skill gaps, perpetual studenthood, financial avoidance dressed as asceticism, and study without direction. Religious knowledge is a trust, but direction is a responsibility.</p>
+
+  <h3>Confidence, not dominance</h3>
+  <div class="voice measure">
+    <div><h4>Dominance sounds like</h4><ul><li>“This is the correct position — end of discussion.”</li><li>“I studied longer, trust me.”</li><li>“This is how scholars do it.”</li></ul></div>
+    <div class="good"><h4>Confidence sounds like</h4><ul><li>“Here are the opinions, and here is why I lean one way.”</li><li>“Let’s walk through this together.”</li><li>“I may be mistaken — let me verify.”</li></ul></div>
+  </div>
+  <p class="measure">Before correcting, ask three questions. Is the issue foundational or peripheral? Will correction bring clarity or fracture? Is this the right time, place, and person?</p>
+  <p class="measure">Watch for two complexes. The savior complex refuses to delegate and centralizes every decision. The martyr complex overworks, resents silently, and wears exhaustion as virtue. Both are ego disguised as sincerity.</p>
+  <p class="measure">Trust with the board runs both ways. The imam communicates openly and avoids surprises. The board protects him publicly, raises concerns privately, and avoids triangulation.</p>
+
+  <h3>The inner life</h3>
+  <p class="measure">Sincerity (ikhlāṣ) cannot be observed, which is why evaluation must attach to defined duties and not to the heart. Authority does not create ego; it exposes and amplifies it. Spiritual bypass uses religious language to excuse structural failure, and it is one of the most damaging patterns in religious institutions:</p>
+  <ul class="plain measure">
+    <li>Duʿāʾ does not replace planning.</li>
+    <li>Dhikr does not compensate for exhaustion.</li>
+    <li>Tawakkul does not excuse neglect.</li>
+  </ul>
+  <p class="measure">Ṣabr is active and discerning: setting limits before resentment builds. Sometimes the most patient act is to say no. Keep spaces where you are not “the imam,” and worship unseen.</p>
+</section>
+
+<section id="minbar">
+  <h2><span class="n">13</span>The minbar as a trust</h2>
+  <p class="point measure">The minbar belongs to the community, not the imam. It is not a place to air grievances, settle institutional disputes, defend one’s reputation, or make indirect accusations, even when the grievance is real.</p>
+  <ul class="plain measure">
+    <li>No naming, no thinly veiled references, no “those who know, know.”</li>
+    <li>No public moralizing of private disputes; religious authority magnifies implication.</li>
+    <li>When a contract is not renewed, do not rally the congregation. Even if the imam is right, factions outlast the moment.</li>
+    <li>Use the proper forums for disputes. The khuṭbah is not one of them.</li>
+  </ul>
+  <p class="pull measure">Especially in moments of pain or transition: restraint is daʿwah, composure is tarbiyah, dignity is leadership.</p>
+</section>
+
+<section id="boards">
+  <h2><span class="n">14</span>What communities get wrong</h2>
+  <p class="point measure">Most problems framed as an imam’s personal failure are institutional. Communities get the leadership they structure for.</p>
+  <div class="scroll"><table>
+    <thead><tr><th>Misstep</th><th>Correction</th></tr></thead>
+    <tbody>
+      <tr><th>Hiring a person instead of defining a role</th><td>Before hiring, state the problem being solved, the responsibilities that matter now, and what success looks like.</td></tr>
+      <tr><th>Expecting one person to fix systemic problems</th><td>No individual substitutes for weak governance, absent programming, or volunteer burnout.</td></tr>
+      <tr><th>Measuring visibility, eloquence, and complaints</th><td>Ask whether people are being trained, relationships built beyond the masjid, and the institution made more stable.</td></tr>
+      <tr><th>Control instead of oversight</th><td>Set goals, review outcomes, and support. Do not micromanage sermons and schedules, and do not disengage either.</td></tr>
+      <tr><th>Avoiding hard conversations</th><td>Raise concerns early and directly, before positions harden.</td></tr>
+      <tr><th>Ignoring the emotional cost</th><td>Pastoral work carries secondary trauma. Communities that ignore it cycle through talent.</td></tr>
+      <tr><th>Treating the imam as replaceable labor</th><td>High turnover is a symptom of weak investment, not a solution.</td></tr>
+      <tr><th>Claiming responsibility for “the community’s safety”</th><td>Own the safety of spaces and operations. Do not claim control over adults’ choices. Hold full safeguarding duties toward children and vulnerable persons.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="pull measure">The imam you hire will not rise above the structure you give him.</p>
+</section>
+
+<section id="checklists">
+  <h2><span class="n">15</span>Checklists</h2>
+  <h3>Board</h3>
+  <p class="measure meta">These assume a scope already defined, agreed in writing, and matched to the imam’s training.</p>
+  <ul class="check measure">
+    <li>Name the problem and the measures of success before naming a person.</li>
+    <li>Decide which of the three functions this position requires, and which are delegated or out of scope.</li>
+    <li>Confirm the budget supports the scope. If it does not, narrow the scope rather than the honesty.</li>
+    <li>Write roles mapped to the three functions, hours, pay, benefits, and clergy-tax structure into the contract.</li>
+    <li>Tie evaluation to defined duties, never to piety, sincerity, or depth of knowledge.</li>
+    <li>Set a mutual review cycle: six months, twelve months, then annually.</li>
+    <li>State boundaries: no legal or medical advice, no untrained therapy.</li>
+    <li>Steward, do not substitute. Set direction and conditions without filling religious roles.</li>
+    <li>Run a baseline period before fixing long-term expectations.</li>
+    <li>Protect leadership publicly, raise concerns privately, and avoid triangulation.</li>
+    <li>Keep a written safeguarding policy and reporting protocol for minors and vulnerable persons.</li>
+    <li>Plan succession before it is needed.</li>
+  </ul>
+  <h3>Imam</h3>
+  <ul class="check measure">
+    <li>Learn the institution’s economics, decision-making, and culture before accepting.</li>
+    <li>Run a personal baseline: observe for three to six months, honor legacy programs, build trust before change.</li>
+    <li>Hold defined hours, protected time, and referral pathways.</li>
+    <li>Name structural failure as structural; do not absorb it as personal inadequacy.</li>
+    <li>Never pursue a relationship with anyone who came to you pastorally or professionally. Watch for the slow, mutual attachment that comes before it.</li>
+    <li>Learn the money. Financial literacy is leadership literacy.</li>
+    <li>Keep spaces where you are not “the imam.”</li>
+    <li>Measure success by sustainability, delegation, and trust, not visibility or universal approval.</li>
+    <li>Keep personal grievance and exit conflict off the minbar.</li>
+    <li>Know when to say no, and when to leave.</li>
+  </ul>
+  <h3>Contract elements</h3>
+  <div class="scroll"><table>
+    <thead><tr><th>Element</th><th>Should state</th></tr></thead>
+    <tbody>
+      <tr><th>Roles</th><td>Held, shared, and out of scope, mapped to the three functions and actual need</td></tr>
+      <tr><th>Availability</th><td>Office hours, response times, emergency protocol, days off, weekends, leave</td></tr>
+      <tr><th>Compensation</th><td>Salary, housing allowance, health coverage, retirement, scaled to scope and cost of living</td></tr>
+      <tr><th>Tax</th><td>Housing-allowance structure, reimbursement, compliance responsibility, professional advice for both sides</td></tr>
+      <tr><th>Evaluation</th><td>Criteria tied to defined duties; piety, sincerity, and knowledge depth explicitly excluded</td></tr>
+      <tr><th>Renegotiation</th><td>Review cycle, criteria for changing scope and pay, mutual modification, paired with any baseline period</td></tr>
+      <tr><th>Development</th><td>Sabbatical, study leave, continuing education</td></tr>
+      <tr><th>Boundaries</th><td>Explicit exclusions: legal advice, medical advice, untrained therapy</td></tr>
+      <tr><th>Transparency</th><td>Shared calendars, reporting structure, regular check-ins</td></tr>
+      <tr><th>Safeguarding</th><td>Acknowledgment of the institution’s written safeguarding and reporting policy</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="jd">
+  <h2><span class="n">16</span>Sample job descriptions</h2>
+  <p class="measure">These templates are illustrative, not prescriptive. The scoping grid is the heart of each. Only what genuinely requires the imam goes in his column. Keep pay aligned to the scope actually assigned.</p>
+
+  <div class="jd">
+    <h3>Tier 1 · Imam, sole religious staff</h3>
+    <p class="meta"><b>Reports to</b> the board through a designated liaison. <b>Purpose:</b> religious leadership and pastoral care, while building volunteer capacity so the community’s religious life does not depend on any one person, including the imam.</p>
+    <div class="scroll"><table>
+      <thead><tr><th>Function</th><th>Imam’s own time</th><th>Shared, delegated, or referred</th></tr></thead>
+      <tbody>
+        <tr><th>Ritual</th><td>Friday khuṭbah; the two ʿīds; the weekly ḥalqah</td><td>Daily prayers by a trained volunteer rotation; khaṭirah rotated among members</td></tr>
+        <tr><th>Pastoral</th><td>Initial meetings; marriage and family guidance; presence in crisis</td><td>Long-term and clinical needs referred; a women’s pastoral contact identified in advance</td></tr>
+        <tr><th>Civic</th><td>Representation to local schools and officials, as capacity allows</td><td>Interfaith and public safety shared with a board liaison; advocacy routed to partners</td></tr>
+        <tr><th>Administration</th><td>Coordinating religious programming</td><td>Operations, finance, facilities, logistics carried by board and volunteers</td></tr>
+      </tbody>
+    </table></div>
+    <p class="meta"><b>Out of scope:</b> clinical therapy and diagnosis; legal or medical advice; bookkeeping; facilities. <b>Terms:</b> defined weekly hours, emergency protocol, protected days off; pay scaled to scope and local cost of living; written six- and twelve-month reviews; job description redrafted at month twelve against observed workload.</p>
+  </div>
+
+  <div class="jd">
+    <h3>Tier 2 · Imam within a multi-staff team</h3>
+    <p class="meta"><b>Reports to</b> the board and supervises religious staff. <b>Purpose:</b> set religious vision and carry the senior pastoral and civic load, while dedicated staff hold ritual, youth, and administration.</p>
+    <div class="scroll"><table>
+      <thead><tr><th>Function</th><th>Imam’s own time</th><th>Shared, delegated, or referred</th></tr></thead>
+      <tbody>
+        <tr><th>Ritual</th><td>Friday khuṭbah and select major occasions</td><td>Daily prayers and Qurʾān instruction by a qārī</td></tr>
+        <tr><th>Pastoral</th><td>Primary pastoral care; intake and referral; spiritual direction</td><td>Youth work with a youth director; women’s care through a female counselor</td></tr>
+        <tr><th>Civic</th><td>Senior civic and interfaith representation; officials</td><td>Event outreach with staff; chaplaincy by dedicated chaplains</td></tr>
+        <tr><th>Administration</th><td>Religious vision; supervising religious staff</td><td>Daily operations by a religious director or administrator</td></tr>
+      </tbody>
+    </table></div>
+    <p class="meta"><b>Terms:</b> as in Tier 1. Evaluation is weighted toward staff development, delegation, institutional relationships, and trust rather than visibility.</p>
+  </div>
+
+  <h3>Tier 3 · Specialist roles</h3>
+  <ul class="plain measure">
+    <li><b>Qārī / prayer leader.</b> Daily prayers and Qurʾān teaching; reports to the imam. Accurate, confident recitation required; full ḥifẓ not required.</li>
+    <li><b>Youth director.</b> Programming, mentorship, and work with parents and educators; reports to the imam or religious director.</li>
+    <li><b>Pastoral counselor (may be a woman).</b> Faith support, crisis, grief, intake and referral; reports to the imam. Bound by the same boundary and safeguarding policies.</li>
+  </ul>
+</section>
+
+<section id="sources">
+  <h2><span class="n">17</span>Sources</h2>
+  <p class="measure">This guide summarizes a practitioner’s handbook and is deliberately light on citation. Textual claims that carry weight:</p>
+  <div class="scroll"><table>
+    <thead><tr><th>Claim</th><th>Source</th></tr></thead>
+    <tbody>
+      <tr><th>Range of “imām”</th><td>The exemplary leader (al-Baqarah 2:124); a clear register (Yā Sīn 36:12). Narrowing the word to a salaried functionary is modern.</td></tr>
+      <tr><th>Distinct classical offices</th><td>Imām al-ṣalāh, khaṭīb, qāḍī, muftī, mudarris, wāʿiẓ, muḥtasib were frequently separate appointments.</td></tr>
+      <tr><th>Wage for the Qurʾān</th><td>Al-Bukhārī, from Ibn ʿAbbās: ruqyah with al-Fātiḥah over a stung man; checked against al-Bayhaqī, al-Sunan al-Kubrā (ed. al-Turkī), who attributes it to al-Bukhārī.</td></tr>
+      <tr><th>ʿUmar and the stipend</th><td>Al-Bukhārī and Muslim: what comes without craving or asking may be taken; checked against al-Bayhaqī, al-Sunan al-Kubrā (ed. al-Turkī), who attributes it to al-Bukhārī.</td></tr>
+      <tr><th>Paid administrators</th><td>Al-Tawbah 9:60.</td></tr>
+      <tr><th>Pastoral asymmetry</th><td>Clergy and helping-profession codes broadly prohibit dual and romantic relationships with those served, since the power differential compromises consent.</td></tr>
+      <tr><th>Mandated reporting</th><td>Jurisdiction-specific. Many U.S. states include clergy and those working with minors, sometimes without exception for confidential disclosures. Obtain local legal counsel.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="measure">Still open: hadith numbers for both prophetic reports in a stated edition.</p>
+</section>
+<p class="disclaimer">This guide offers a framework, not a template; communities, personalities, and circumstances differ. It is not legal, tax, or employment advice. Adapted from Farhan Siddiqi, <em>From Expectation to Structure: Reframing the Modern Imamate</em>.</p>
+</div>
