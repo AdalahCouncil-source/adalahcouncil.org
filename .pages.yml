@@ -3,6 +3,75 @@ media:
   output: /assets/uploads
 
 content:
+  - name: guides
+    label: Guides
+    type: collection
+    path: _guides
+    format: yaml-frontmatter
+    filename:
+      template: "{primary}.md"
+      field: create
+    view:
+      primary: title
+      sort: date
+      order: desc
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: deck
+        label: Summary (one or two sentences shown under the title and in search results)
+        type: text
+      - name: date
+        label: Date
+        type: date
+        required: true
+      - name: type
+        label: Type
+        type: select
+        options:
+          values: [Essay, Research, Guidance, Statement, Announcement]
+      - name: author
+        label: Author
+        type: string
+        default: Adalah Council
+      - name: lead
+        label: Feature this guide at the top of the Guides page
+        type: boolean
+        default: false
+      - name: image
+        label: Cover picture (optional; shown on the Guides page when this is the featured guide, and as the preview when the article is shared; tall pictures work best, 3:4; use JPG or PNG)
+        type: image
+      - name: pdf
+        label: PDF version (optional)
+        type: file
+        options:
+          extensions: [pdf]
+      - name: author_bio
+        label: Author bio (optional, one or two sentences shown at the end of the article)
+        type: text
+      - name: published
+        label: Published (turn off to keep it hidden as a draft)
+        type: boolean
+        default: true
+      - name: layout
+        type: string
+        default: article
+        hidden: true
+      - name: wide
+        type: boolean
+        hidden: true
+      - name: include
+        type: string
+        hidden: true
+      - name: share_image
+        type: string
+        hidden: true
+      - name: body
+        label: Guide text
+        type: rich-text
+
   - name: articles
     label: Journal articles
     type: collection

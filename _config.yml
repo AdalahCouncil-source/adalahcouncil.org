@@ -10,6 +10,9 @@ collections:
   articles:
     output: true                   # each article becomes its own page
     permalink: /journal/:name/
+  guides:
+    output: true                   # each guide becomes its own page
+    permalink: /guides/:name/
 
 markdown: kramdown
 kramdown:

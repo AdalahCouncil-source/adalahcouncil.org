@@ -4,7 +4,6 @@ deck: "What to do before death, at death, in the washing and shrouding, and in t
 date: 2026-11-15
 type: Guidance
 author: Adalah Council
-issue: "Volume 1, Issue 1"
 lead: true
 published: true
 layout: article
