@@ -164,6 +164,10 @@ content:
       - name: description
         label: Description (optional)
         type: text
+      - name: featured
+        label: Feature this video at the top of the Media page (stays featured when new videos upload; if several are switched on, the highest in the list wins)
+        type: boolean
+        default: false
 
   - name: shorts
     label: Shorts

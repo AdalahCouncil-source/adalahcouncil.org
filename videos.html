@@ -434,11 +434,12 @@ function firstPara(d){return String(d||'').split(/\n\s*\n/)[0].trim();}
   if(!SHORTS.length) document.getElementById('shorts').hidden = true;
   if(!VIDEOS.length){ document.querySelector('.stage').hidden = true; document.getElementById('talks').innerHTML = '<p class="empty">New talks will appear here.</p>'; }
   VIDEOS.forEach(function(v){v.id=ytId(v.youtube);});
-  var cur=0, filter='All';
+  var pinned=-1; VIDEOS.forEach(function(v,i){ if(pinned<0 && (v.featured===true||v.featured==='true')) pinned=i; });
+  var first=pinned<0?0:pinned, cur=first, filter='All';
   var $=function(i){return document.getElementById(i);};
   function setNow(play){
     var v=VIDEOS[cur];
-    $('nowLabel').textContent = cur===0 ? 'Latest lecture' : 'Now playing';
+    $('nowLabel').textContent = cur!==first ? 'Now playing' : (pinned<0 ? 'Latest lecture' : 'Featured lecture');
     $('nowTitle').textContent=v.title; $('nowDeck').textContent=firstPara(v.description);
     $('nowMeta').textContent=[v.topic,'Adalah Council'].filter(Boolean).join(', ');
     $('nowYT').href='https://www.youtube.com/watch?v='+v.id;
